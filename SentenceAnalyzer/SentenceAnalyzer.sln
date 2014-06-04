@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{34F1F39F-CA38-4C49-80F8-BA0A7643FA91}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordInfoLoader", "WordInfoLoader\WordInfoLoader.csproj", "{A75BC14E-6B30-47E3-8982-3DB81BC6E6E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordParser", "WordParser\WordParser.csproj", "{4EC4E2B4-AAF0-4803-882A-7B6A50DF1993}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A75BC14E-6B30-47E3-8982-3DB81BC6E6E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75BC14E-6B30-47E3-8982-3DB81BC6E6E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75BC14E-6B30-47E3-8982-3DB81BC6E6E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EC4E2B4-AAF0-4803-882A-7B6A50DF1993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EC4E2B4-AAF0-4803-882A-7B6A50DF1993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EC4E2B4-AAF0-4803-882A-7B6A50DF1993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EC4E2B4-AAF0-4803-882A-7B6A50DF1993}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

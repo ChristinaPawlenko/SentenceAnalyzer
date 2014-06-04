@@ -16,11 +16,13 @@ namespace WordInfoLoader
             ReadArgs(args);
 
             var words = File.ReadAllLines(_wordsPath).Select(x => x.Trim()).ToList();
+            var count = (double)words.Count;
             for (var i = 0; i < words.Count(); i++)
             {
                 var word = words[i];
                 var responseText = HttpLoader.LoadData(_url, _urlReferer, word);
-                File.AppendAllText(Path.Combine(_outputDir, word + ".html"), responseText);
+                File.WriteAllText(Path.Combine(_outputDir, word + ".html"), responseText);
+                Console.WriteLine("{0:P}:\t{1}", i / count, word);
             }
         }
 
