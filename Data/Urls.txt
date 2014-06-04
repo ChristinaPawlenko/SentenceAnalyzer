@@ -4,6 +4,9 @@ http://sanstv.ru/english_words/
 word info
 http://www.scientificpsychic.com/verbs1.html
 
-habra
+NLP
 http://habrahabr.ru/post/108831/
 http://habrahabr.ru/post/148124/
+
+Html Parser
+http://habrahabr.ru/post/112325/
