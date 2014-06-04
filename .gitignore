@@ -1,3 +1,6 @@
 /SentenceAnalyzer/*.suo
 /SentenceAnalyzer/Common/obj
 /SentenceAnalyzer/Common/bin
+/SentenceAnalyzer/WordInfoLoader/bin
+/SentenceAnalyzer/WordInfoLoader/obj
+/SentenceAnalyzer/WordInfoLoader/*.user
