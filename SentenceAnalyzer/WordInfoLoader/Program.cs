@@ -22,7 +22,7 @@ namespace WordInfoLoader
                 var word = words[i];
                 var responseText = HttpLoader.LoadData(_url, _urlReferer, word);
                 File.WriteAllText(Path.Combine(_outputDir, word + ".html"), responseText);
-                Console.WriteLine("{0:P}:\t{1}", i / count, word);
+                Console.WriteLine("{0:P}:\t{1}", (i + 1) / count, word);
             }
         }
 
