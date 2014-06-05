@@ -27,10 +27,11 @@ namespace WordParser
                 using (var reader = fileInfo.OpenText())
                 {
                     html.LoadHtml(reader.ReadToEnd());
-                    words.AddRange(Parse(html));
+                    var items = Parse(html);
+                    words.AddRange(items.Where(x => x != null).ToList());
                 }
 
-                //Console.WriteLine("{0:P}:\t{1}", (i + 1) / count, fileInfo.Name);
+                Console.WriteLine("{0:P}:\t{1}", (i + 1) / count, fileInfo.Name);
             }
         }
 
@@ -197,7 +198,7 @@ namespace WordParser
 
         private static Word ParseXXXX(HtmlNode item, HtmlDocument html)
         {
-            Console.WriteLine("-> {0}", item.InnerText);
+            //Console.WriteLine("-> {0}", item.InnerText);
             return null;
         }
 
@@ -206,10 +207,12 @@ namespace WordParser
             var centerDiv = html.GetElementbyId("center");
             var childNodes = centerDiv.ChildNodes;
             var pos = childNodes.IndexOf(item);
-            var firstDiv = childNodes.Skip(pos).Where(x=>x.Name == "div");
-            
-            Console.WriteLine("-> {0}", item.InnerText);
-            return null;
+            var element = childNodes[pos + 2];
+            var name = element.InnerText.Replace("(", "").Replace(")", "").Replace("\n", "");
+            var word = new Article(name);
+            word.AddForm(name);
+
+            return word;
         }
     }
 }
