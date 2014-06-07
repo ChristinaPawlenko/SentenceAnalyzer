@@ -3,3 +3,6 @@
 /SentenceAnalyzer/Common/bin
 /SentenceAnalyzer/WordInfoLoader/bin
 /SentenceAnalyzer/WordInfoLoader/obj
+/SentenceAnalyzer/WordParser/bin
+/SentenceAnalyzer/WordParser/obj
+/SentenceAnalyzer/packages
