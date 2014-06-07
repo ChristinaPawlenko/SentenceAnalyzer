@@ -1,15 +1,18 @@
 ﻿using Common.Model;
+using Common.Model.Enum;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace WordParser
 {
     class Program
     {
         private static string _dictionaryPath;
+        private static string _dictionaryTxtPath;
         private static string _wordsInfoDir;
 
         static void Main(string[] args)
@@ -27,21 +30,42 @@ namespace WordParser
                 using (var reader = fileInfo.OpenText())
                 {
                     html.LoadHtml(reader.ReadToEnd());
-                    var items = Parse(html);
+                    var items = Parse(html, fileInfo.Name.Replace(fileInfo.Extension, string.Empty));
                     words.AddRange(items.Where(x => x != null).ToList());
                 }
-
                 Console.WriteLine("{0:P}:\t{1}", (i + 1) / count, fileInfo.Name);
             }
+
+            // write to txt file
+            File.WriteAllLines(_dictionaryTxtPath, words.Select(x => x.ToString()));
+
+            // write to xml file
+            var doc = new XDocument(new XElement("words"));
+            foreach (var parts in words.OrderBy(x => x.Name).ThenBy(x => x.WordType).GroupBy(x => x.Name))
+            {
+                var wordElement = new XElement("word", new XAttribute("name", parts.Key), new XElement("parts"));
+                doc.Root.Add(wordElement);
+                foreach (var part in parts)
+                {
+                    var partElement = new XElement("part", new XAttribute("name", part.WordType), new XElement("forms"));
+                    (wordElement.FirstNode as XElement).Add(partElement);
+                    foreach (var form in part.GetForms())
+                    {
+                        (partElement.FirstNode as XElement).Add(new XElement("form", form));
+                    }
+                }
+            }
+            doc.Save(_dictionaryPath);
         }
 
         private static void ReadArgs(string[] args)
         {
             _dictionaryPath = args[0];
-            _wordsInfoDir = args[1];
+            _dictionaryTxtPath = args[1];
+            _wordsInfoDir = args[2];
         }
 
-        private static IEnumerable<Word> Parse(HtmlDocument html)
+        private static IEnumerable<Word> Parse(HtmlDocument html, string wordName)
         {
             var centerDiv = html.GetElementbyId("center");
             var nodes = centerDiv.ChildNodes
@@ -50,169 +74,161 @@ namespace WordParser
                 .ToList();
 
             var words = new List<Word>();
-
             foreach (var item in nodes)
             {
                 var type = item.InnerText;
+                Word word;
+                string[] forms;
+                #region switch
                 switch (type)
                 {
                     case "(Article)":
-                        words.Add(ParseArticle(item, html));
+                        forms = ParseSimple(item, html);
+                        word = new Article(forms[0]);
+                        word.AddForms(forms);
                         break;
                     case "(Verb)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Noun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Adjective)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Preposition)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Uninflected adverb)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Uninflected adjective)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Conjunction)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Interjection)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Feminine noun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Quantitative pronoun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Pronoun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Indefinite pronoun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Uninflected pronoun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Masculine noun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Adverb)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
                     case "(Defective verb)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Quantitative plural pronoun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
-                    case "(Plural noun)":
-                        words.Add(ParseXXXX(item, html));
+                        forms = ParseTab2(item, html);
+                        word = new Verb(forms[0]);
+                        word.AddForms(forms);
                         break;
                     case "(Modal verb)":
-                        words.Add(ParseXXXX(item, html));
+                        forms = ParseSimple(item, html);
+                        word = new ModalVerb(forms[0]);
+                        word.AddForms(forms);
                         break;
-                    case "(1st person singular pronoun)":
-                        words.Add(ParseXXXX(item, html));
+                    case "(Noun)":
+                    case "(Feminine noun)":
+                    case "(Masculine noun)":
+                        forms = ParseTab2(item, html);
+                        word = new Noun(forms[0]);
+                        word.AddForms(forms);
                         break;
-                    case "(2nd person singular pronoun)":
-                        words.Add(ParseXXXX(item, html));
+                    case "(Plural noun)":
+                        forms = ParseSimple(item, html);
+                        word = new Noun(forms[0]);
+                        word.AddForms(forms);
                         break;
-                    case "(3rd person masculine singular pronoun)":
-                        words.Add(ParseXXXX(item, html));
+                    case "(Adjective)":
+                    case "(Uninflected adjective)":
+                        forms = ParseSimple(item, html);
+                        word = new Adjective(forms[0]);
+                        word.AddForms(forms);
                         break;
-                    case "(3rd person feminine singular pronoun )":
-                        words.Add(ParseXXXX(item, html));
+                    case "(Preposition)":
+                        forms = ParseSimple(item, html);
+                        word = new Preposition(forms[0]);
+                        word.AddForms(forms);
                         break;
-                    case "(3rd person neuter singular pronoun)":
-                        words.Add(ParseXXXX(item, html));
+                    case "(Adverb)":
+                    case "(Uninflected adverb)":
+                        forms = ParseSimple(item, html);
+                        word = new Adverb(forms[0]);
+                        word.AddForms(forms);
                         break;
-                    case "(2nd person plural pronoun )":
-                        words.Add(ParseXXXX(item, html));
+                    case "(Conjunction)":
+                        forms = ParseSimple(item, html);
+                        word = new Conjunction(forms[0]);
+                        word.AddForms(forms);
                         break;
-                    case "(3rd person plural pronoun)":
-                        words.Add(ParseXXXX(item, html));
+                    case "(Interjection)":
+                        forms = ParseSimple(item, html);
+                        word = new Interjection(forms[0]);
+                        word.AddForm(forms[0]);
                         break;
-                    case "(Plural pronoun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
+                    case "(Pronoun)":
+                    case "(Quantitative plural pronoun)":
+                    case "(Uninflected interrogative pronoun)":
                     case "(Demonstrative pronoun)":
-                        words.Add(ParseXXXX(item, html));
+                    case "(Plural pronoun)":
+                        forms = ParseSimple(item, html);
+                        word = new Pronoun(forms[0], WordType.Pronoun);
+                        word.AddForms(forms);
+                        break;
+                    case "(Quantitative pronoun)":
+                        forms = ParseSimple(item, html);
+                        word = new Pronoun(forms[0], WordType.QuantitativePronoun);
+                        word.AddForms(forms);
+                        break;
+                    case "(Indefinite pronoun)":
+                        forms = ParseSimple(item, html);
+                        word = new Pronoun(forms[0], WordType.PronounIndefinite);
+                        word.AddForms(forms);
+                        break;
+                    case "(Uninflected pronoun)":
+                        forms = ParseSimple(item, html);
+                        word = new Pronoun(forms[0], WordType.PronounUninflected);
+                        word.AddForms(forms);
                         break;
                     case "(Relative pronoun)":
-                        words.Add(ParseXXXX(item, html));
-                        break;
                     case "(Relative pronoun 2)":
-                        words.Add(ParseXXXX(item, html));
+                        forms = ParseSimple(item, html);
+                        word = new Pronoun(forms[0], WordType.PronounRelative);
+                        word.AddForms(forms);
                         break;
-                    case "(Uninflected interrogative pronoun)":
-                        words.Add(ParseXXXX(item, html));
+                    case "(1st person singular pronoun)":
+                    case "()":  // (1st person plural pronoun )
+                        forms = ParseSimple(item, html);
+                        word = new Pronoun(forms[0], WordType.PronounPerson1);
+                        word.AddForms(forms);
                         break;
+                    case "(2nd person singular pronoun)":
+                    case "(2nd person plural pronoun )":
+                        forms = ParseSimple(item, html);
+                        word = new Pronoun(forms[0], WordType.PronounPerson2);
+                        word.AddForms(forms);
+                        break;
+                    case "(3rd person masculine singular pronoun)":
+                    case "(3rd person feminine singular pronoun )":
+                    case "(3rd person plural pronoun)":
+                    case "(3rd person neuter singular pronoun)":
+                        forms = ParseSimple(item, html);
+                        word = new Pronoun(forms[0], WordType.PronounPerson2);
+                        word.AddForms(forms);
+                        break;
+                    default:
+                        throw new Exception(string.Format("The type {0} is not defined", type));
                 }
-
-
-                // item can be:
-
-                //()   todo: make stub for (we,our,us) 
-
-                //(Article)
-                //(Verb)
-                //(Noun)
-                //(Adjective)
-                //(Preposition)
-                //(Uninflected adverb)
-                //(Uninflected adjective)
-                //(Conjunction)
-                //(Interjection)
-                //(Feminine noun)
-                //(Quantitative pronoun)
-                //(Pronoun)
-                //(Indefinite pronoun)
-                //(Uninflected pronoun)
-                //(Masculine noun)
-                //(Adverb)
-                //(Defective verb)
-                //(Quantitative plural pronoun)
-                //(Plural noun)
-                //(Modal verb)
-                //(1st person singular pronoun)
-                //(2nd person singular pronoun)
-                //(3rd person masculine singular pronoun)
-                //(3rd person feminine singular pronoun )
-                //(3rd person neuter singular pronoun)
-                //(2nd person plural pronoun )
-                //(3rd person plural pronoun)
-                //(Plural pronoun)
-                //(Demonstrative pronoun)
-                //(Relative pronoun)
-                //(Relative pronoun 2)
-                //(Uninflected interrogative pronoun)
+                #endregion
+                words.Add(word);
             }
-
             return words;
         }
 
-        private static Word ParseXXXX(HtmlNode item, HtmlDocument html)
-        {
-            //Console.WriteLine("-> {0}", item.InnerText);
-            return null;
-        }
-
-        private static Word ParseArticle(HtmlNode item, HtmlDocument html)
+        private static string[] ParseSimple(HtmlNode item, HtmlDocument html)
         {
             var centerDiv = html.GetElementbyId("center");
             var childNodes = centerDiv.ChildNodes;
-            var pos = childNodes.IndexOf(item);
-            var element = childNodes[pos + 2];
-            var name = element.InnerText.Replace("(", "").Replace(")", "").Replace("\n", "");
-            var word = new Article(name);
-            word.AddForm(name);
+            var startPosition = childNodes.IndexOf(item);
+            var nextBlok = childNodes.Skip(startPosition + 1).First(x => x.Name == "hr" || x.Name == "span");
+            var endPosition = childNodes.IndexOf(nextBlok);
+            var list = new List<string>();
+            for (var i = startPosition + 1; i < endPosition; ++i)
+            {
+                var el = childNodes[i].InnerText.Trim('\n', '-');
+                if (!string.IsNullOrWhiteSpace(el)) list.AddRange(el.Split(',').Select(x => x.Trim()));
+            }
+            return list.Distinct().ToArray();
+        }
 
-            return word;
+        private static string[] ParseTab2(HtmlNode item, HtmlDocument html)
+        {
+            var centerDiv = html.GetElementbyId("center");
+            var childNodes = centerDiv.ChildNodes;
+            var startPosition = childNodes.IndexOf(item);
+            var table = childNodes.Skip(startPosition + 1).First(x => x.Name == "table");
+            var list = new List<string>();
+            foreach (var tr in table.ChildNodes.Where(x => x.Name == "tr"))
+            {
+                var el = tr.ChildNodes.LastOrDefault(x => x.Name == "td" && x.Attributes.All(y => y.Name != "colspan"));
+                if (el != null)
+                {
+                    var text = el.InnerText.Trim('\n', '-');
+                    if (!string.IsNullOrWhiteSpace(text)) list.AddRange(text.Split(',').Select(x => x.Trim()));
+                }
+            }
+            return list.Distinct().ToArray();
         }
     }
 }

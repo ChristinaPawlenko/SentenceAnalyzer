@@ -42,6 +42,7 @@
     <Compile Include="Model\Adjective.cs" />
     <Compile Include="Model\Adverb.cs" />
     <Compile Include="Model\Article.cs" />
+    <Compile Include="Model\Interjection.cs" />
     <Compile Include="Model\Conjunction.cs" />
     <Compile Include="Model\Enum\QuantityType.cs" />
     <Compile Include="Model\Enum\VerbType.cs" />

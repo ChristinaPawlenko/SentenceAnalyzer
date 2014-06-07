@@ -7,15 +7,15 @@ namespace Common.Model
 {
     public abstract class Word
     {
-        private readonly string _text;
+        private readonly string _name;
 
         protected Word(string text)
         {
-            _text = text;
+            _name = text;
         }
 
         public abstract WordType WordType { get; }
-        public string Text { get { return _text; } }
+        public string Name { get { return _name; } }
         protected List<string> Forms = new List<string>();
 
         public void AddForm(string form)
@@ -36,6 +36,12 @@ namespace Common.Model
         public virtual bool MatchTo(string word)
         {
             return Forms.Any(x => string.Compare(x, word, StringComparison.InvariantCultureIgnoreCase) == 0);
+        }
+
+        public override string ToString()
+        {
+            var forms = string.Join(",", Forms).Trim(',');
+            return string.Format("{1} ({2}) ({0})", WordType, _name, forms);
         }
     }
 }
