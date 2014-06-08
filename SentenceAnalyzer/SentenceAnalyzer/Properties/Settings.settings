@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SentenceAnalyzer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AffirmativeUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://en.wikipedia.org/wiki/Affirmative_and_negative</Value>
+    </Setting>
+    <Setting Name="NegativeUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://en.wikipedia.org/wiki/Affirmative_and_negative</Value>
+    </Setting>
+    <Setting Name="InterrogativeUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://en.wikipedia.org/wiki/Interrogative</Value>
+    </Setting>
+    <Setting Name="SimplePresentUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/simplepresent.html</Value>
+    </Setting>
+    <Setting Name="PresentContinuousUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/presentcontinuous.html</Value>
+    </Setting>
+    <Setting Name="PresentPerfectUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/presentperfect.html</Value>
+    </Setting>
+    <Setting Name="PresentPerfectContinuousUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/presentperfectcontinuous.html</Value>
+    </Setting>
+    <Setting Name="SimplePastUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/simplepast.html</Value>
+    </Setting>
+    <Setting Name="PastContinuousUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/pastcontinuous.html</Value>
+    </Setting>
+    <Setting Name="PastPerfectUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/pastperfect.html</Value>
+    </Setting>
+    <Setting Name="PastPerfectContinuousUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/pastperfectcontinuous.html</Value>
+    </Setting>
+    <Setting Name="SimpleFutureUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/simplefuture.html</Value>
+    </Setting>
+    <Setting Name="FutureContinuousUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/futurecontinuous.html</Value>
+    </Setting>
+    <Setting Name="FuturePerfectUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/futureperfect.html</Value>
+    </Setting>
+    <Setting Name="FuturePerfectContinuousUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.englishpage.com/verbpage/futureperfectcontinuous.html</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
