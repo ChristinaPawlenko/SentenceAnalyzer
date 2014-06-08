@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordParser", "WordParser\Wo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentenceAnalyzer", "SentenceAnalyzer\SentenceAnalyzer.csproj", "{D6EF3A54-4A2F-41B2-853E-1BF40E4D6DCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SentenceAnalyzer.Library", "SentenceAnalyzer.Library\SentenceAnalyzer.Library.csproj", "{8CD100A0-38F9-42BB-BB84-9808004148EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D6EF3A54-4A2F-41B2-853E-1BF40E4D6DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6EF3A54-4A2F-41B2-853E-1BF40E4D6DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6EF3A54-4A2F-41B2-853E-1BF40E4D6DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD100A0-38F9-42BB-BB84-9808004148EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD100A0-38F9-42BB-BB84-9808004148EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD100A0-38F9-42BB-BB84-9808004148EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD100A0-38F9-42BB-BB84-9808004148EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
