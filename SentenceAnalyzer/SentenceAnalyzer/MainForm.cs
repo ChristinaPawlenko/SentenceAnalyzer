@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Common.Model;
+using SentenceAnalyzer.Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +22,15 @@ namespace SentenceAnalyzer
 
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
-            SetColor(Color.Red, "artem", "mitya");
+            // todo: remove stub
+
+            var words = new WordCollection();
+            words.Load(Properties.Settings.Default.WordsDictionaryPath);
+
+            var s = new Sentence("'Oh, you cannot help that,' said the Cat: 'we are all mad here. I am mad. You are mad.'");
+            s.SplitByWords(words);
+           
+            SetColor(Color.Red, new Chunk(5, 10, ""), new Chunk(15, 23, ""));
             rtbSentenceContainer.Focus();
 
             lblSubjectText.Text = "word1, word1, word1, word1, word1, word1, word1";
@@ -37,21 +47,28 @@ namespace SentenceAnalyzer
             rtbSentenceContainer.Focus();
         }
 
-        private void SetColor(Color color, params string[] words)
+        private void SetColor(Color color, params Chunk[] chunks)
         {
-            foreach (var word in words)
-            {
-                if (string.IsNullOrWhiteSpace(word)) continue;
-                int pos = rtbSentenceContainer.Find(word, RichTextBoxFinds.WholeWord);
-                while(pos > 0)
-                {
-                    rtbSentenceContainer.SelectionStart = pos;
-                    rtbSentenceContainer.SelectionLength = word.Length;
-                    rtbSentenceContainer.SelectionColor = color;
+            // store cursor position
+            var bkpPos = rtbSentenceContainer.SelectionStart;
 
-                    pos = rtbSentenceContainer.Find(word, pos + 1, RichTextBoxFinds.WholeWord);
-                }
+            // clear formatting
+            rtbSentenceContainer.SelectionStart = 0;
+            rtbSentenceContainer.SelectionLength = rtbSentenceContainer.Text.Length;
+            rtbSentenceContainer.SelectionColor = Color.Black;
+
+            // mark all chunks
+            foreach (var chunk in chunks)
+            {
+                rtbSentenceContainer.SelectionStart = chunk.StartPosition;
+                rtbSentenceContainer.SelectionLength = chunk.Length;
+                rtbSentenceContainer.SelectionColor = color;
             }
+
+            // Set default parameters
+            rtbSentenceContainer.SelectionLength = 0;
+            rtbSentenceContainer.SelectionStart = bkpPos;
+            rtbSentenceContainer.SelectionColor = Color.Black;
         }
 
         private void LinkedLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -59,6 +76,7 @@ namespace SentenceAnalyzer
             var url = e.Link.LinkData as string;
             if (!string.IsNullOrWhiteSpace(url))
             {
+                // open page in a dafault browser
                 Process.Start(url);
             }
         }

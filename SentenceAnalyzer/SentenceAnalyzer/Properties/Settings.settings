@@ -47,5 +47,8 @@
     <Setting Name="FuturePerfectContinuousUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.englishpage.com/verbpage/futureperfectcontinuous.html</Value>
     </Setting>
+    <Setting Name="WordsDictionaryPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\..\..\..\Data\dictionary.xml</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

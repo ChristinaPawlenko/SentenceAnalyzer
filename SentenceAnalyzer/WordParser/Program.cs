@@ -188,7 +188,7 @@ namespace WordParser
                         word.AddForms(forms);
                         break;
                     default:
-                        throw new Exception(string.Format("The type {0} is not defined", type));
+                        throw new NotSupportedException(string.Format("The type {0} is not defined", type));
                 }
                 #endregion
                 words.Add(word);

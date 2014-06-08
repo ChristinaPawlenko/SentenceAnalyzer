@@ -202,5 +202,17 @@ namespace SentenceAnalyzer.Properties {
                 this["FuturePerfectContinuousUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("..\\..\\..\\..\\Data\\dictionary.xml")]
+        public string WordsDictionaryPath {
+            get {
+                return ((string)(this["WordsDictionaryPath"]));
+            }
+            set {
+                this["WordsDictionaryPath"] = value;
+            }
+        }
     }
 }
