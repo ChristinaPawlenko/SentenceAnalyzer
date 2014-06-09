@@ -3,12 +3,13 @@ using Common.Model;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Text;
 
 namespace SentenceAnalyzer.Library
 {
     public class Sentence
     {
-        private List<Word[]> _parts = new List<Word[]>();
+        private List<WordWrapper[]> _parts = new List<WordWrapper[]>();
         public readonly string Text;
 
         public Sentence(string text)
@@ -25,8 +26,24 @@ namespace SentenceAnalyzer.Library
             // find appropriate word specification
             foreach (var word in words)
             {
-                _parts.Add(wordSpecification.Find(word));
+                var appropriateWords = wordSpecification.Find(word);
+                _parts.Add(appropriateWords.Select(x => new WordWrapper(x, word)).ToArray());
             }
+        }
+
+        internal string Transform()
+        {
+            var sb = new StringBuilder(Text);
+            foreach (var part in _parts)
+            {
+                if (!part.Any()) continue;
+                var text = part.First().ActiveForm;
+                var block = string.Format("{{{0}}}", string.Join("|", part.Select(x => x.Word.Key)).Trim('|'));
+                var startIndex = sb.ToString().IndexOf(text);
+                sb.Replace(text, block, startIndex, text.Length);
+            }
+
+            return sb.ToString();
         }
 
         public SentenceInfo Analyze()
@@ -35,6 +52,6 @@ namespace SentenceAnalyzer.Library
         }
 
         public int WordsCount { get { return _parts.Count; } }
-        public Word[] this[int pos] { get { return _parts[pos]; } }
+        public WordWrapper[] this[int pos] { get { return _parts[pos]; } }
     }
 }

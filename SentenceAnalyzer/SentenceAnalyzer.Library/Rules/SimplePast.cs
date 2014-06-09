@@ -1,15 +1,27 @@
-﻿namespace SentenceAnalyzer.Library.Rules
+﻿using System;
+
+namespace SentenceAnalyzer.Library.Rules
 {
     public class SimplePast : BaseRule
     {
+        protected override string AffirmativeTemplate
+        {
+            get { return "not_supported"; }
+        }
+
+        protected override string NegativeTemplate
+        {
+            get { return "not_supported"; }
+        }
+
+        protected override string InterrogativeTemplate
+        {
+            get { return "not_supported"; }
+        }
+
         public override string Name
         {
             get { return @"Simple Past"; }
-        }
-
-        public override bool Verify(Sentence sentence)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

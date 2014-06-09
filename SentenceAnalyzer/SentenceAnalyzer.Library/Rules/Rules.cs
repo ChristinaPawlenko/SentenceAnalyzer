@@ -31,7 +31,7 @@ namespace SentenceAnalyzer.Library.Rules
             if (FuturePerfect.Verify(sentence)) return FuturePerfect;
             if (FuturePerfectContinuous.Verify(sentence)) return FuturePerfectContinuous;
 
-            throw new ArgumentException("There are no any suitable rules");
+            return null;
         }
     }
 }

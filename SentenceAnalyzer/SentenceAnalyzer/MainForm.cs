@@ -1,5 +1,6 @@
 ﻿using Common.Model;
 using SentenceAnalyzer.Library;
+using SentenceAnalyzer.Library.Rules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,33 +24,42 @@ namespace SentenceAnalyzer
 
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrWhiteSpace(rtbSentenceContainer.Text))
+                rtbSentenceContainer.Text = rtbSentenceContainer.Text[0].ToString().ToUpper() + rtbSentenceContainer.Text.Substring(1);
+            
             // todo: remove stub
-
-            var q1 = Regex.IsMatch("{Adv|Adj} {Adv|V} {V|Adj}", @"\{(\w+\|)*Adv(\|\w+)*\}");
-            var q2 = Regex.Matches("artem {Adv|Adj} {Adv|V} {V|Adj} q", @"\{(\w+\|)*Adv(\|\w+)*\}");
-
 
             var words = new WordCollection();
             words.Load(Properties.Settings.Default.WordsDictionaryPath);
 
             //var s = new Sentence("'Oh, you cannot help that,' said the Cat: 'we are all mad here. I am mad. You are mad.'");
-            var s = new Sentence("Honestly I and my brother are big friends.");
+            //var s = new Sentence("Honestly I and my brother are big friends.");
+            //var s = new Sentence("Car goes near to another car.");
+
+            var s = new Sentence(rtbSentenceContainer.Text);
             s.SplitByWords(words);
-           
-            SetColor(Color.Red, new Chunk(5, 10, ""), new Chunk(15, 23, ""));
+
+            var rule = Rules.FindRule(s);
+
+            //SetColor(Color.Red, new Chunk(5, 10, ""), new Chunk(15, 23, ""));
             rtbSentenceContainer.Focus();
 
-            lblSubjectText.Text = "word1, word1, word1, word1, word1, word1, word1";
-            lblPredicateText.Text = "word2, word2, word2, word2, word2, word2, word2";
-            llblTense.Links[0].LinkData = Properties.Settings.Default.FuturePerfectContinuousUrl;
-            llblDirection.Links[0].LinkData = Properties.Settings.Default.AffirmativeUrl;
+            //lblSubjectText.Text = "word1, word1, word1, word1, word1, word1, word1";
+            //lblPredicateText.Text = "word2, word2, word2, word2, word2, word2, word2";
+            //llblTense.Links[0].LinkData = Properties.Settings.Default.FuturePerfectContinuousUrl;
+            //llblDirection.Links[0].LinkData = Properties.Settings.Default.AffirmativeUrl;
 
-            pnlInfo.Visible = true;
+            pnlInfo.Visible = rule != null;
+            if (rule != null)
+            {
+                llblTense.Text = rule.Name;
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             rtbSentenceContainer.Text = string.Empty;
+            pnlInfo.Visible = false;
             rtbSentenceContainer.Focus();
         }
 

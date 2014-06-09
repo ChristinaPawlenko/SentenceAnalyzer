@@ -1,15 +1,26 @@
-﻿namespace SentenceAnalyzer.Library.Rules
+﻿using System;
+namespace SentenceAnalyzer.Library.Rules
 {
     public class PastContinuous : BaseRule
     {
+        protected override string AffirmativeTemplate
+        {
+            get { return "not_supported"; }
+        }
+
+        protected override string NegativeTemplate
+        {
+            get { return "not_supported"; }
+        }
+
+        protected override string InterrogativeTemplate
+        {
+            get { return "not_supported"; }
+        }
+
         public override string Name
         {
             get { return @"Past Continuous"; }
-        }
-
-        public override bool Verify(Sentence sentence)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
