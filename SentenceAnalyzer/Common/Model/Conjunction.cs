@@ -11,5 +11,8 @@ namespace Common.Model
         {
             get { return WordType.Conjunction; }
         }
+
+        public const string KEY = @"C";
+        public override string Key { get { return KEY; } }
     }
 }

@@ -11,5 +11,8 @@ namespace Common.Model
         {
             get { return WordType.Preposition; }
         }
+
+        public const string KEY = @"Pr";
+        public override string Key { get { return KEY; } }
     }
 }

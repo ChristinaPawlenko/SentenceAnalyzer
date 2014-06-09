@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,6 +24,10 @@ namespace SentenceAnalyzer
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
             // todo: remove stub
+
+            var q1 = Regex.IsMatch("{Adv|Adj} {Adv|V} {V|Adj}", @"\{(\w+\|)*Adv(\|\w+)*\}");
+            var q2 = Regex.Matches("artem {Adv|Adj} {Adv|V} {V|Adj} q", @"\{(\w+\|)*Adv(\|\w+)*\}");
+
 
             var words = new WordCollection();
             words.Load(Properties.Settings.Default.WordsDictionaryPath);

@@ -11,5 +11,8 @@ namespace Common.Model
         {
             get { return WordType.ModalVerb; }
         }
+
+        public const string KEY = @"MV";
+        public override string Key { get { return KEY; } }
     }
 }

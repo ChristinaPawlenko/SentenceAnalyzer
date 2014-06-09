@@ -9,6 +9,9 @@ namespace Common.Model
     {
         private readonly string _name;
 
+        public abstract string Key { get; }
+        public string KeyWrapped { get { return string.Format(@"\{(\w+\|)*{0}(\|\w+)*\}", Key); } }
+
         protected Word(string text)
         {
             _name = text;

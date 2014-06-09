@@ -11,5 +11,8 @@ namespace Common.Model
         {
             get { return WordType.Adverb; }
         }
+
+        public const string KEY = @"Adv";
+        public override string Key { get { return KEY; } }
     }
 }

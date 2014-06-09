@@ -42,5 +42,8 @@ namespace Common.Model
 
             return formsList.ToArray();
         }
+
+        public const string KEY = @"V";
+        public override string Key { get { return KEY; } }
     }
 }

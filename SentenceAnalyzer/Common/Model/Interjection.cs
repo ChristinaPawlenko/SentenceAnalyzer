@@ -10,4 +10,7 @@ public class Interjection : Word
     {
         get { return WordType.Interjection; }
     }
+
+    public const string KEY = @"I";
+    public override string Key { get { return KEY; } }
 }

@@ -11,5 +11,8 @@ namespace Common.Model
         {
             get { return WordType.Numeral; }
         }
+
+        public const string KEY = @"Num";
+        public override string Key { get { return KEY; } }
     }
 }

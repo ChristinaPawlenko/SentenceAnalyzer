@@ -11,5 +11,8 @@ namespace Common.Model
         {
             get { return WordType.Article; }
         }
+
+        public const string KEY = @"A";
+        public override string Key { get { return KEY; } }
     }
 }

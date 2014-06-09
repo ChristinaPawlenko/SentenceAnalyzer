@@ -17,5 +17,8 @@ namespace Common.Model
         }
 
         public QuantityType QuantityType { get; set; }
+
+        public const string KEY = @"P";
+        public override string Key { get { return KEY; } }
     }
 }
