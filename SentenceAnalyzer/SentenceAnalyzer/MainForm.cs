@@ -27,7 +27,8 @@ namespace SentenceAnalyzer
             var words = new WordCollection();
             words.Load(Properties.Settings.Default.WordsDictionaryPath);
 
-            var s = new Sentence("'Oh, you cannot help that,' said the Cat: 'we are all mad here. I am mad. You are mad.'");
+            //var s = new Sentence("'Oh, you cannot help that,' said the Cat: 'we are all mad here. I am mad. You are mad.'");
+            var s = new Sentence("Honestly I and my brother are big friends.");
             s.SplitByWords(words);
            
             SetColor(Color.Red, new Chunk(5, 10, ""), new Chunk(15, 23, ""));

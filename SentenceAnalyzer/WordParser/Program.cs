@@ -31,7 +31,11 @@ namespace WordParser
                 {
                     html.LoadHtml(reader.ReadToEnd());
                     var items = Parse(html, fileInfo.Name.Replace(fileInfo.Extension, string.Empty));
-                    words.AddRange(items.Where(x => x != null).ToList());
+                    var newWords = items
+                        .Where(x => x != null)
+                        .Where(x => words.All(w => !w.Equals(x)))
+                        .ToList();
+                    words.AddRange(newWords);
                 }
                 Console.WriteLine("{0:P}:\t{1}", (i + 1) / count, fileInfo.Name);
             }

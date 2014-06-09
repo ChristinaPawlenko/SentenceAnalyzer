@@ -5,7 +5,7 @@ using Common.Model.Enum;
 
 namespace Common.Model
 {
-    public abstract class Word
+    public abstract class Word : IEquatable<Word>
     {
         private readonly string _name;
 
@@ -81,6 +81,16 @@ namespace Common.Model
                 default: 
                     throw new NotSupportedException(string.Format("The type {0} is not defined", wordType));
             }
+        }
+
+        public int GetHashCode(Word obj)
+        {
+            return obj.Name.GetHashCode() + obj.WordType.GetHashCode();
+        }
+
+        public bool Equals(Word other)
+        {
+            return WordType == other.WordType && Name.Equals(other.Name, StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }
