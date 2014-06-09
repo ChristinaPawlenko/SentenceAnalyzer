@@ -82,7 +82,7 @@
             // 
             // helpProvider1
             // 
-            this.helpProvider1.HelpNamespace = "D:\\Git\\SentenceAnalyzer\\Data\\About.pdf";
+            this.helpProvider1.HelpNamespace = "..\\..\\..\\..\\Data\\About.pdf";
             // 
             // pnlInfo
             // 
