@@ -28,6 +28,16 @@ namespace SentenceAnalyzer.Library.Rules
             return string.Format(@"\{{(\w+\|)*{0}(\|\w+)*\}}", key);
         }
 
+        //todo: make abstract
+        protected virtual string AffirmativeSubjectTemplate
+        {
+            get
+            {
+                return "";
+            }
+        }
+
+        
         protected abstract string AffirmativeTemplate { get; }
         protected abstract string NegativeTemplate { get; }
         protected abstract string InterrogativeTemplate { get; }
@@ -50,10 +60,46 @@ namespace SentenceAnalyzer.Library.Rules
             return false;
         }
 
-        public SentenceInfo Explain()
+        private SentenceDirection? VerifyInner(Sentence sentence)
         {
-            //SentenceDirection direction;
-            throw new NotSupportedException();
+            var transformedSentence = sentence.Transform();
+            if (Regex.IsMatch(transformedSentence, InterrogativeTemplate))
+            {
+                return SentenceDirection.Interrogative;
+            }
+            else if (Regex.IsMatch(transformedSentence, NegativeTemplate))
+            {
+                return SentenceDirection.Negative;
+            }
+            else if (Regex.IsMatch(transformedSentence, AffirmativeTemplate))
+            {
+                return SentenceDirection.Affirmative;
+            }
+            return null;
+        }
+
+        public SentenceInfo Explain(Sentence sentence)
+        {
+            var direction = VerifyInner(sentence);
+            if (direction == null) return null;
+
+            var transformedSentence = sentence.Transform();
+            switch (direction.Value)
+            {
+                case SentenceDirection.Affirmative:
+                    {
+                        var mm = Regex.Matches(transformedSentence, AffirmativeSubjectTemplate);
+                        //todo get chunks
+                        break;
+                    }
+            }
+
+            return new SentenceInfo
+            {
+                Direction = direction.Value.ToString(),
+                Tense = Name,
+                //Predicate = 
+            };
         }
     }
 }

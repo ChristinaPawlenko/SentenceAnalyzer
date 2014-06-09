@@ -35,22 +35,18 @@ namespace SentenceAnalyzer
             var words = new WordCollection();
             words.Load(Properties.Settings.Default.WordsDictionaryPath);
 
-            //var s = new Sentence("'Oh, you cannot help that,' said the Cat: 'we are all mad here. I am mad. You are mad.'");
-            //var s = new Sentence("Honestly I and my brother are big friends.");
-            //var s = new Sentence("Car goes near to another car.");
 
             var s = new Sentence(rtbSentenceContainer.Text);
             s.SplitByWords(words);
 
             var rule = Rules.FindRule(s);
 
-            //SetColor(Color.Red, new Chunk(5, 10, ""), new Chunk(15, 23, ""));
-            rtbSentenceContainer.Focus();
+            var info = rule.Explain(s);
 
-            //lblSubjectText.Text = "word1, word1, word1, word1, word1, word1, word1";
-            //lblPredicateText.Text = "word2, word2, word2, word2, word2, word2, word2";
-            //llblTense.Links[0].LinkData = Properties.Settings.Default.FuturePerfectContinuousUrl;
-            //llblDirection.Links[0].LinkData = Properties.Settings.Default.AffirmativeUrl;
+            llblTense.Text = info.Tense;
+            llblDirection.Text = info.Direction;
+
+            rtbSentenceContainer.Focus();
 
             pnlInfo.Visible = rule != null;
             if (rule != null)

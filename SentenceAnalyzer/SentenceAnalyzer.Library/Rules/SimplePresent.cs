@@ -5,6 +5,14 @@ namespace SentenceAnalyzer.Library.Rules
 {
     public class SimplePresent : BaseRule
     {
+        protected override string AffirmativeSubjectTemplate
+        {
+            get
+            {
+                return string.Format(@"^({3}\W)?(((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({4}\W({0}\W)?)*{5}))", C, P, A, Adv, Adj, N);
+            }
+        }
+
         protected override string AffirmativeTemplate
         {
             get
