@@ -16,15 +16,19 @@ namespace SentenceAnalyzer.Library.Rules
 
         protected override string NegativeTemplate
         {
-            get { return "not_supported"; }
+            get
+            {
+                return string.Format(@"^({3}\W)?((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({4}\W({0}\W)?)*{5})+({6}\s{7})(.*{6}.*)*\.$",
+                    C, P, A, Adv, Adj, N, V, NOT);
+            }
         }
 
         protected override string InterrogativeTemplate
         {
             get
             {
-                return string.Format(@"^({6}\W)((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({4}\W({0}\W)?)*{5})+({6}\W).*\?$",
-                    C, P, A, Adv, Adj, N, V);
+                return string.Format(@"^({3}\W)?({6}\W)((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({4}\W({0}\W)?)*{5})+({6}\W?).*\?$|^({7}\W)({6}\W).*\?$", 
+                    C, P, A, Adv, Adj, N, V, PR);
             }
         }
 

@@ -38,7 +38,7 @@ namespace SentenceAnalyzer.Library
             {
                 if (!part.Any()) continue;
                 var text = part.First().ActiveForm;
-                var block = string.Format("{{{0}}}", string.Join("|", part.Select(x => x.Word.Key)).Trim('|'));
+                var block = string.Format("{{{0}}}", string.Join("|", part.Select(x => x.Word.Name == "not" ? "not" : x.Word.Key)).Trim('|'));
                 var startIndex = sb.ToString().IndexOf(text);
                 sb.Replace(text, block, startIndex, text.Length);
             }

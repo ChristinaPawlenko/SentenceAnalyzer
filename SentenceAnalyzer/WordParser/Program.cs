@@ -92,6 +92,10 @@ namespace WordParser
                         word.AddForms(forms);
                         break;
                     case "(Verb)":
+                        forms = ParseTab2(item, html);
+                        word = new Verb(forms[0]);
+                        word.AddForms(forms);
+                        break;
                     case "(Defective verb)":
                         forms = ParseTab2(item, html);
                         word = new Verb(forms[0]);

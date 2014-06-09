@@ -18,6 +18,7 @@ namespace SentenceAnalyzer.Library.Rules
         protected readonly string I = WrapKey(Interjection.KEY);
         protected readonly string MV = WrapKey(ModalVerb.KEY);
         protected readonly string Pr = WrapKey(Preposition.KEY);
+        protected readonly string NOT = @"{not}";
         #endregion
 
         public abstract string Name { get; }
@@ -34,11 +35,11 @@ namespace SentenceAnalyzer.Library.Rules
         public bool Verify(Sentence sentence)
         {
             var transformedSentence = sentence.Transform();
-            if (Regex.IsMatch(transformedSentence, NegativeTemplate))
+            if (Regex.IsMatch(transformedSentence, InterrogativeTemplate))
             {
                 return true;
             }
-            else if (Regex.IsMatch(transformedSentence, InterrogativeTemplate))
+            else if (Regex.IsMatch(transformedSentence, NegativeTemplate))
             {
                 return true;
             }
