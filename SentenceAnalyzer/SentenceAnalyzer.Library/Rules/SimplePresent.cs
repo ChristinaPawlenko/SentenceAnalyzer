@@ -21,7 +21,11 @@ namespace SentenceAnalyzer.Library.Rules
 
         protected override string InterrogativeTemplate
         {
-            get { return "not_supported"; }
+            get
+            {
+                return string.Format(@"^({6}\W)((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({4}\W({0}\W)?)*{5})+({6}\W).*\?$",
+                    C, P, A, Adv, Adj, N, V);
+            }
         }
 
         public override string Name

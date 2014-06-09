@@ -25,7 +25,10 @@ namespace SentenceAnalyzer
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(rtbSentenceContainer.Text))
-                rtbSentenceContainer.Text = rtbSentenceContainer.Text[0].ToString().ToUpper() + rtbSentenceContainer.Text.Substring(1).TrimEnd();
+            {
+                rtbSentenceContainer.Text = rtbSentenceContainer.Text.Trim();
+                rtbSentenceContainer.Text = rtbSentenceContainer.Text[0].ToString().ToUpper() + rtbSentenceContainer.Text.Substring(1);
+            }
             
             // todo: remove stub
 

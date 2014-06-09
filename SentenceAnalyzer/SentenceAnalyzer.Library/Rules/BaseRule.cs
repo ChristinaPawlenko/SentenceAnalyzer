@@ -11,6 +11,7 @@ namespace SentenceAnalyzer.Library.Rules
         protected readonly string Adv = WrapKey(Adverb.KEY);
         protected readonly string Adj = WrapKey(Adjective.KEY);
         protected readonly string P = WrapKey(Pronoun.KEY);
+        protected readonly string PR = WrapKey(Pronoun.KEY_RELETIVE);
         protected readonly string C = WrapKey(Conjunction.KEY);
         protected readonly string N = WrapKey(Noun.KEY);
         protected readonly string V = WrapKey(Verb.KEY);
@@ -33,15 +34,15 @@ namespace SentenceAnalyzer.Library.Rules
         public bool Verify(Sentence sentence)
         {
             var transformedSentence = sentence.Transform();
-            if (Regex.IsMatch(transformedSentence, AffirmativeTemplate))
-            {
-                return true;
-            }
-            else if (Regex.IsMatch(transformedSentence, NegativeTemplate))
+            if (Regex.IsMatch(transformedSentence, NegativeTemplate))
             {
                 return true;
             }
             else if (Regex.IsMatch(transformedSentence, InterrogativeTemplate))
+            {
+                return true;
+            }
+            else if (Regex.IsMatch(transformedSentence, AffirmativeTemplate))
             {
                 return true;
             }
