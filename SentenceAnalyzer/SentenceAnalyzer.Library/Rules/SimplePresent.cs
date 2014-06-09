@@ -9,7 +9,7 @@ namespace SentenceAnalyzer.Library.Rules
         {
             get
             {
-                return string.Format(@"({3}\W)?((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({4}\W({0}\W)?)*{5})+(.*{6}.*)*\.", 
+                return string.Format(@"^({3}\W)?((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({4}\W({0}\W)?)*{5})+(.*{6}.*)+\.$", 
                     C, P, A, Adv, Adj, N, V);
             }
         }
