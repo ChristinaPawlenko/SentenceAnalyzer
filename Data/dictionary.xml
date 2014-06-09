@@ -14,6 +14,7 @@
       <part name="Noun">
         <forms>
           <form>abandon</form>
+          <form>-</form>
           <form>abandon's</form>
         </forms>
       </part>
@@ -140,6 +141,7 @@
       <part name="Noun">
         <forms>
           <form>absurd</form>
+          <form>-</form>
           <form>absurd's</form>
         </forms>
       </part>
@@ -563,6 +565,7 @@
       <part name="Noun">
         <forms>
           <form>advice</form>
+          <form>-</form>
           <form>advice's</form>
         </forms>
       </part>
@@ -913,6 +916,7 @@
       <part name="Noun">
         <forms>
           <form>Alice</form>
+          <form>-</form>
           <form>Alice's</form>
         </forms>
       </part>
@@ -949,6 +953,7 @@
       <part name="Noun">
         <forms>
           <form>all</form>
+          <form>-</form>
           <form>all's</form>
         </forms>
       </part>
@@ -2594,34 +2599,6 @@
           <form>worst</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>bad</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>bad</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>bad</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>bad</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>bad</form>
@@ -2645,13 +2622,6 @@
   </word>
   <word name="badly">
     <parts>
-      <part name="Adverb">
-        <forms>
-          <form>badly</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
       <part name="Adverb">
         <forms>
           <form>badly</form>
@@ -3117,18 +3087,6 @@
           <form>is</form>
         </forms>
       </part>
-      <part name="Verb">
-        <forms>
-          <form>be</form>
-          <form>was</form>
-          <form>were</form>
-          <form>being</form>
-          <form>been</form>
-          <form>am</form>
-          <form>are</form>
-          <form>is</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="beach">
@@ -3196,33 +3154,6 @@
           <form>bore</form>
           <form>bearing</form>
           <form>borne</form>
-          <form>bears</form>
-        </forms>
-      </part>
-      <part name="Verb">
-        <forms>
-          <form>bear</form>
-          <form>bore</form>
-          <form>bearing</form>
-          <form>born</form>
-          <form>bears</form>
-        </forms>
-      </part>
-      <part name="Verb">
-        <forms>
-          <form>bear</form>
-          <form>bore</form>
-          <form>bearing</form>
-          <form>borne</form>
-          <form>bears</form>
-        </forms>
-      </part>
-      <part name="Verb">
-        <forms>
-          <form>bear</form>
-          <form>bore</form>
-          <form>bearing</form>
-          <form>born</form>
           <form>bears</form>
         </forms>
       </part>
@@ -3704,6 +3635,7 @@
       <part name="Noun">
         <forms>
           <form>best</form>
+          <form>-</form>
           <form>best's</form>
         </forms>
       </part>
@@ -3864,20 +3796,6 @@
           <form>biggest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>big</form>
-          <form>bigger</form>
-          <form>biggest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>big</form>
-          <form>bigger</form>
-          <form>biggest</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>big</form>
@@ -4027,15 +3945,6 @@
           <form>bites</form>
         </forms>
       </part>
-      <part name="Verb">
-        <forms>
-          <form>bite</form>
-          <form>bit</form>
-          <form>biting</form>
-          <form>bitten</form>
-          <form>bites</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="bitter">
@@ -4102,6 +4011,7 @@
       <part name="Noun">
         <forms>
           <form>blackness</form>
+          <form>-</form>
           <form>blackness's</form>
         </forms>
       </part>
@@ -5737,14 +5647,6 @@
           <form>builds</form>
         </forms>
       </part>
-      <part name="Verb">
-        <forms>
-          <form>build</form>
-          <form>built</form>
-          <form>building</form>
-          <form>builds</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="building">
@@ -6612,6 +6514,7 @@
       <part name="Noun">
         <forms>
           <form>Carter</form>
+          <form>-</form>
           <form>Carter's</form>
         </forms>
       </part>
@@ -8131,20 +8034,6 @@
           <form>closest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>close</form>
-          <form>closer</form>
-          <form>closest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>close</form>
-          <form>closer</form>
-          <form>closest</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>close</form>
@@ -8168,15 +8057,6 @@
   </word>
   <word name="clothe">
     <parts>
-      <part name="Verb">
-        <forms>
-          <form>clothe</form>
-          <form>clothed</form>
-          <form>clad</form>
-          <form>clothing</form>
-          <form>clothes</form>
-        </forms>
-      </part>
       <part name="Verb">
         <forms>
           <form>clothe</form>
@@ -9174,6 +9054,7 @@
       <part name="Noun">
         <forms>
           <form>consciousness</form>
+          <form>-</form>
           <form>consciousness's</form>
         </forms>
       </part>
@@ -9542,6 +9423,7 @@
       <part name="Noun">
         <forms>
           <form>Corp</form>
+          <form>-</form>
           <form>Corp's</form>
         </forms>
       </part>
@@ -9801,6 +9683,7 @@
       <part name="Noun">
         <forms>
           <form>courage</form>
+          <form>-</form>
           <form>courage's</form>
         </forms>
       </part>
@@ -10390,6 +10273,7 @@
       <part name="Noun">
         <forms>
           <form>cunning</form>
+          <form>-</form>
           <form>cunning's</form>
         </forms>
       </part>
@@ -10662,6 +10546,7 @@
       <part name="Noun">
         <forms>
           <form>dale</form>
+          <form>-</form>
           <form>dale's</form>
         </forms>
       </part>
@@ -10749,6 +10634,7 @@
       <part name="Noun">
         <forms>
           <form>Dan</form>
+          <form>-</form>
           <form>Dan's</form>
         </forms>
       </part>
@@ -10851,6 +10737,7 @@
       <part name="Noun">
         <forms>
           <form>darkness</form>
+          <form>-</form>
           <form>darkness's</form>
         </forms>
       </part>
@@ -10967,6 +10854,7 @@
       <part name="Noun">
         <forms>
           <form>David</form>
+          <form>-</form>
           <form>David's</form>
         </forms>
       </part>
@@ -10977,6 +10865,7 @@
       <part name="Noun">
         <forms>
           <form>dawn</form>
+          <form>-</form>
           <form>dawn's</form>
         </forms>
       </part>
@@ -11077,6 +10966,7 @@
       <part name="Noun">
         <forms>
           <form>dean</form>
+          <form>-</form>
           <form>dean's</form>
         </forms>
       </part>
@@ -11145,6 +11035,7 @@
       <part name="Noun">
         <forms>
           <form>decay</form>
+          <form>-</form>
           <form>decay's</form>
         </forms>
       </part>
@@ -11870,6 +11761,7 @@
       <part name="Noun">
         <forms>
           <form>Dick</form>
+          <form>-</form>
           <form>Dick's</form>
         </forms>
       </part>
@@ -12250,6 +12142,7 @@
       <part name="Noun">
         <forms>
           <form>disgust</form>
+          <form>-</form>
           <form>disgust's</form>
         </forms>
       </part>
@@ -12425,6 +12318,7 @@
       <part name="Noun">
         <forms>
           <form>distress</form>
+          <form>-</form>
           <form>distress's</form>
         </forms>
       </part>
@@ -12577,6 +12471,7 @@
       <part name="Noun">
         <forms>
           <form>don</form>
+          <form>-</form>
           <form>don's</form>
         </forms>
       </part>
@@ -13217,6 +13112,7 @@
       <part name="Noun">
         <forms>
           <form>Dublin</form>
+          <form>-</form>
           <form>Dublin's</form>
         </forms>
       </part>
@@ -13681,6 +13577,7 @@
       <part name="Noun">
         <forms>
           <form>Edward</form>
+          <form>-</form>
           <form>Edward's</form>
         </forms>
       </part>
@@ -13874,6 +13771,7 @@
       <part name="Noun">
         <forms>
           <form>Elizabeth</form>
+          <form>-</form>
           <form>Elizabeth's</form>
         </forms>
       </part>
@@ -14138,6 +14036,7 @@
       <part name="Noun">
         <forms>
           <form>England</form>
+          <form>-</form>
           <form>England's</form>
         </forms>
       </part>
@@ -14148,6 +14047,7 @@
       <part name="Noun">
         <forms>
           <form>English</form>
+          <form>-</form>
           <form>English's</form>
         </forms>
       </part>
@@ -14318,6 +14218,7 @@
       <part name="Noun">
         <forms>
           <form>equipment</form>
+          <form>-</form>
           <form>equipment's</form>
         </forms>
       </part>
@@ -14342,6 +14243,7 @@
       <part name="Noun">
         <forms>
           <form>Ernest</form>
+          <form>-</form>
           <form>Ernest's</form>
         </forms>
       </part>
@@ -14521,6 +14423,7 @@
       <part name="Noun">
         <forms>
           <form>evidence</form>
+          <form>-</form>
           <form>evidence's</form>
         </forms>
       </part>
@@ -15415,39 +15318,6 @@
           <form>furthest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>far</form>
-          <form>farther</form>
-          <form>further</form>
-          <form>farthest</form>
-          <form>furthest</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>far</form>
-          <form>farther</form>
-          <form>further</form>
-          <form>farthest</form>
-          <form>furthest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>far</form>
-          <form>farther</form>
-          <form>farthest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>far</form>
-          <form>further</form>
-          <form>furthest</form>
-          <form>furthermost</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>far</form>
@@ -15565,20 +15435,6 @@
         </forms>
       </part>
       <part name="Adverb">
-        <forms>
-          <form>fast</form>
-          <form>faster</form>
-          <form>fastest</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>fast</form>
-          <form>faster</form>
-          <form>fastest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
         <forms>
           <form>fast</form>
           <form>faster</form>
@@ -15830,14 +15686,6 @@
           <form>feels</form>
           <form>feel's</form>
           <form>feels'</form>
-        </forms>
-      </part>
-      <part name="Verb">
-        <forms>
-          <form>feel</form>
-          <form>felt</form>
-          <form>feeling</form>
-          <form>feels</form>
         </forms>
       </part>
       <part name="Verb">
@@ -17519,6 +17367,7 @@
       <part name="Noun">
         <forms>
           <form>frank</form>
+          <form>-</form>
           <form>frank's</form>
         </forms>
       </part>
@@ -17539,6 +17388,15 @@
       </part>
     </parts>
   </word>
+  <word name="frankly">
+    <parts>
+      <part name="Adverb">
+        <forms>
+          <form>frankly</form>
+        </forms>
+      </part>
+    </parts>
+  </word>
   <word name="frantic">
     <parts>
       <part name="Adjective">
@@ -17553,6 +17411,7 @@
       <part name="Noun">
         <forms>
           <form>Fred</form>
+          <form>-</form>
           <form>Fred's</form>
         </forms>
       </part>
@@ -17998,6 +17857,7 @@
       <part name="Noun">
         <forms>
           <form>furniture</form>
+          <form>-</form>
           <form>furniture's</form>
         </forms>
       </part>
@@ -18290,6 +18150,7 @@
       <part name="Noun">
         <forms>
           <form>gay</form>
+          <form>-</form>
           <form>gay's</form>
         </forms>
       </part>
@@ -18430,14 +18291,6 @@
           <form>gentlemen's</form>
         </forms>
       </part>
-      <part name="Noun">
-        <forms>
-          <form>gentleman</form>
-          <form>gentlemen</form>
-          <form>gentleman's</form>
-          <form>gentlemen's</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="genuine">
@@ -18454,6 +18307,7 @@
       <part name="Noun">
         <forms>
           <form>George</form>
+          <form>-</form>
           <form>George's</form>
         </forms>
       </part>
@@ -19017,20 +18871,6 @@
           <form>best</form>
         </forms>
       </part>
-      <part name="Adjective">
-        <forms>
-          <form>good</form>
-          <form>better</form>
-          <form>best</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>good</form>
-          <form>better</form>
-          <form>best</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="goodness">
@@ -19038,6 +18878,7 @@
       <part name="Noun">
         <forms>
           <form>goodness</form>
+          <form>-</form>
           <form>goodness's</form>
         </forms>
       </part>
@@ -19133,6 +18974,7 @@
       <part name="Noun">
         <forms>
           <form>grace</form>
+          <form>-</form>
           <form>grace's</form>
         </forms>
       </part>
@@ -19227,6 +19069,7 @@
       <part name="Noun">
         <forms>
           <form>grant</form>
+          <form>-</form>
           <form>grant's</form>
         </forms>
       </part>
@@ -19294,6 +19137,7 @@
       <part name="Noun">
         <forms>
           <form>gratitude</form>
+          <form>-</form>
           <form>gratitude's</form>
         </forms>
       </part>
@@ -19370,20 +19214,6 @@
         </forms>
       </part>
       <part name="Adverb">
-        <forms>
-          <form>great</form>
-          <form>greater</form>
-          <form>greatest</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>great</form>
-          <form>greater</form>
-          <form>greatest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
         <forms>
           <form>great</form>
           <form>greater</form>
@@ -19836,6 +19666,7 @@
       <part name="Noun">
         <forms>
           <form>guy</form>
+          <form>-</form>
           <form>guy's</form>
         </forms>
       </part>
@@ -20140,6 +19971,7 @@
       <part name="Noun">
         <forms>
           <form>happiness</form>
+          <form>-</form>
           <form>happiness's</form>
         </forms>
       </part>
@@ -20159,20 +19991,6 @@
   <word name="hard">
     <parts>
       <part name="Adverb">
-        <forms>
-          <form>hard</form>
-          <form>harder</form>
-          <form>hardest</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>hard</form>
-          <form>harder</form>
-          <form>hardest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
         <forms>
           <form>hard</form>
           <form>harder</form>
@@ -20380,30 +20198,6 @@
           <form>himself</form>
         </forms>
       </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>he</form>
-          <form>him</form>
-          <form>his</form>
-          <form>himself</form>
-        </forms>
-      </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>he</form>
-          <form>him</form>
-          <form>his</form>
-          <form>himself</form>
-        </forms>
-      </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>he</form>
-          <form>him</form>
-          <form>his</form>
-          <form>himself</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="head">
@@ -20448,6 +20242,7 @@
       <part name="Noun">
         <forms>
           <form>health</form>
+          <form>-</form>
           <form>health's</form>
         </forms>
       </part>
@@ -20847,34 +20642,6 @@
           <form>highest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>high</form>
-          <form>higher</form>
-          <form>highest</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>high</form>
-          <form>higher</form>
-          <form>highest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>high</form>
-          <form>higher</form>
-          <form>highest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>high</form>
-          <form>higher</form>
-          <form>highest</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>high</form>
@@ -21147,6 +20914,15 @@
       </part>
     </parts>
   </word>
+  <word name="honestly">
+    <parts>
+      <part name="Adverb">
+        <forms>
+          <form>honestly</form>
+        </forms>
+      </part>
+    </parts>
+  </word>
   <word name="honour">
     <parts>
       <part name="Noun">
@@ -21240,6 +21016,7 @@
       <part name="Noun">
         <forms>
           <form>hope</form>
+          <form>-</form>
           <form>hope's</form>
         </forms>
       </part>
@@ -21716,14 +21493,6 @@
           <form>hurries</form>
         </forms>
       </part>
-      <part name="Verb">
-        <forms>
-          <form>hurry</form>
-          <form>hurried</form>
-          <form>hurrying</form>
-          <form>hurries</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="hurt">
@@ -21818,42 +21587,6 @@
           <form>myself</form>
         </forms>
       </part>
-      <part name="PronounPerson1">
-        <forms>
-          <form>I</form>
-          <form>me</form>
-          <form>my</form>
-          <form>mine</form>
-          <form>myself</form>
-        </forms>
-      </part>
-      <part name="PronounPerson1">
-        <forms>
-          <form>I</form>
-          <form>me</form>
-          <form>my</form>
-          <form>mine</form>
-          <form>myself</form>
-        </forms>
-      </part>
-      <part name="PronounPerson1">
-        <forms>
-          <form>I</form>
-          <form>me</form>
-          <form>my</form>
-          <form>mine</form>
-          <form>myself</form>
-        </forms>
-      </part>
-      <part name="PronounPerson1">
-        <forms>
-          <form>I</form>
-          <form>me</form>
-          <form>my</form>
-          <form>mine</form>
-          <form>myself</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="ice">
@@ -21921,6 +21654,7 @@
       <part name="Noun">
         <forms>
           <form>idle</form>
+          <form>-</form>
           <form>idle's</form>
         </forms>
       </part>
@@ -21973,34 +21707,6 @@
         </forms>
       </part>
       <part name="Adverb">
-        <forms>
-          <form>ill</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>ill</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>ill</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>ill</form>
-          <form>worse</form>
-          <form>worst</form>
-        </forms>
-      </part>
-      <part name="Adjective">
         <forms>
           <form>ill</form>
           <form>worse</form>
@@ -22104,6 +21810,7 @@
       <part name="Noun">
         <forms>
           <form>importance</form>
+          <form>-</form>
           <form>importance's</form>
         </forms>
       </part>
@@ -22398,6 +22105,7 @@
       <part name="Noun">
         <forms>
           <form>information</form>
+          <form>-</form>
           <form>information's</form>
         </forms>
       </part>
@@ -22905,6 +22613,7 @@
       <part name="Noun">
         <forms>
           <form>Ireland</form>
+          <form>-</form>
           <form>Ireland's</form>
         </forms>
       </part>
@@ -22915,6 +22624,7 @@
       <part name="Noun">
         <forms>
           <form>Irish</form>
+          <form>-</form>
           <form>Irish's</form>
         </forms>
       </part>
@@ -23005,13 +22715,6 @@
           <form>itself</form>
         </forms>
       </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>it</form>
-          <form>its</form>
-          <form>itself</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="Italian">
@@ -23061,6 +22764,7 @@
       <part name="Noun">
         <forms>
           <form>jack</form>
+          <form>-</form>
           <form>jack's</form>
         </forms>
       </part>
@@ -23139,6 +22843,7 @@
       <part name="Noun">
         <forms>
           <form>Jane</form>
+          <form>-</form>
           <form>Jane's</form>
         </forms>
       </part>
@@ -23256,6 +22961,7 @@
       <part name="Noun">
         <forms>
           <form>Jim</form>
+          <form>-</form>
           <form>Jim's</form>
         </forms>
       </part>
@@ -23291,6 +22997,7 @@
       <part name="Noun">
         <forms>
           <form>Joe</form>
+          <form>-</form>
           <form>Joe's</form>
         </forms>
       </part>
@@ -23309,6 +23016,7 @@
       <part name="Noun">
         <forms>
           <form>john</form>
+          <form>-</form>
           <form>john's</form>
         </forms>
       </part>
@@ -23359,6 +23067,7 @@
       <part name="Noun">
         <forms>
           <form>Jordan</form>
+          <form>-</form>
           <form>Jordan's</form>
         </forms>
       </part>
@@ -23409,6 +23118,7 @@
       <part name="Noun">
         <forms>
           <form>joy</form>
+          <form>-</form>
           <form>joy's</form>
         </forms>
       </part>
@@ -23886,6 +23596,7 @@
       <part name="Noun">
         <forms>
           <form>knowledge</form>
+          <form>-</form>
           <form>knowledge's</form>
         </forms>
       </part>
@@ -24175,20 +23886,6 @@
   <word name="late">
     <parts>
       <part name="Adverb">
-        <forms>
-          <form>late</form>
-          <form>later</form>
-          <form>latest</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>late</form>
-          <form>later</form>
-          <form>latest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
         <forms>
           <form>late</form>
           <form>later</form>
@@ -24554,12 +24251,14 @@
       <part name="Noun">
         <forms>
           <form>lee</form>
+          <form>-</form>
           <form>lee's</form>
         </forms>
       </part>
       <part name="Noun">
         <forms>
           <form>lee</form>
+          <form>-</form>
           <form>lee's</form>
         </forms>
       </part>
@@ -24829,23 +24528,6 @@
           <form>lies</form>
         </forms>
       </part>
-      <part name="Verb">
-        <forms>
-          <form>lie</form>
-          <form>lay</form>
-          <form>lying</form>
-          <form>lain</form>
-          <form>lies</form>
-        </forms>
-      </part>
-      <part name="Verb">
-        <forms>
-          <form>lie</form>
-          <form>lied</form>
-          <form>lying</form>
-          <form>lies</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="life">
@@ -24911,20 +24593,6 @@
           <form>lightest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>light</form>
-          <form>lighter</form>
-          <form>lightest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>light</form>
-          <form>lighter</form>
-          <form>lightest</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>light</form>
@@ -24959,6 +24627,7 @@
       <part name="Verb">
         <forms>
           <form>lightning</form>
+          <form>-</form>
           <form>lightninged</form>
           <form>lightnings</form>
         </forms>
@@ -25203,43 +24872,6 @@
           <form>least</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>little</form>
-          <form>less</form>
-          <form>least</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>little</form>
-          <form>less</form>
-          <form>least</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>little</form>
-          <form>less</form>
-          <form>lesser</form>
-          <form>least</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>little</form>
-          <form>less</form>
-          <form>lesser</form>
-          <form>least</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>little</form>
-          <form>littler</form>
-          <form>littlest</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>little</form>
@@ -25380,6 +25012,7 @@
       <part name="Noun">
         <forms>
           <form>London</form>
+          <form>-</form>
           <form>London's</form>
         </forms>
       </part>
@@ -25413,20 +25046,6 @@
         </forms>
       </part>
       <part name="Adverb">
-        <forms>
-          <form>long</form>
-          <form>longer</form>
-          <form>longest</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>long</form>
-          <form>longer</form>
-          <form>longest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
         <forms>
           <form>long</form>
           <form>longer</form>
@@ -25651,21 +25270,6 @@
           <form>lowest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>low</form>
-          <form>lower</form>
-          <form>lowest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>low</form>
-          <form>lower</form>
-          <form>lowest</form>
-          <form>lowermost</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>low</form>
@@ -25693,6 +25297,7 @@
       <part name="Noun">
         <forms>
           <form>luck</form>
+          <form>-</form>
           <form>luck's</form>
         </forms>
       </part>
@@ -25817,6 +25422,7 @@
       <part name="Noun">
         <forms>
           <form>madness</form>
+          <form>-</form>
           <form>madness's</form>
         </forms>
       </part>
@@ -26020,6 +25626,7 @@
       <part name="Noun">
         <forms>
           <form>mankind</form>
+          <form>-</form>
           <form>mankind's</form>
         </forms>
       </part>
@@ -26141,6 +25748,7 @@
       <part name="Noun">
         <forms>
           <form>mark</form>
+          <form>-</form>
           <form>mark's</form>
         </forms>
       </part>
@@ -26819,6 +26427,7 @@
       <part name="Noun">
         <forms>
           <form>midnight</form>
+          <form>-</form>
           <form>midnight's</form>
         </forms>
       </part>
@@ -27179,15 +26788,6 @@
           <form>mistakes</form>
         </forms>
       </part>
-      <part name="Verb">
-        <forms>
-          <form>mistake</form>
-          <form>mistook</form>
-          <form>mistaking</form>
-          <form>mistaken</form>
-          <form>mistakes</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="mistaken">
@@ -27527,6 +27127,7 @@
       <part name="Noun">
         <forms>
           <form>moonlight</form>
+          <form>-</form>
           <form>moonlight's</form>
         </forms>
       </part>
@@ -27825,6 +27426,7 @@
       <part name="Noun">
         <forms>
           <form>Mr</form>
+          <form>-</form>
           <form>Mr's</form>
         </forms>
       </part>
@@ -27835,38 +27437,11 @@
       <part name="Noun">
         <forms>
           <form>much</form>
+          <form>-</form>
           <form>much's</form>
         </forms>
       </part>
       <part name="Adverb">
-        <forms>
-          <form>much</form>
-          <form>more</form>
-          <form>most</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>much</form>
-          <form>more</form>
-          <form>most</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>much</form>
-          <form>more</form>
-          <form>most</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>much</form>
-          <form>more</form>
-          <form>most</form>
-        </forms>
-      </part>
-      <part name="Adjective">
         <forms>
           <form>much</form>
           <form>more</form>
@@ -28351,20 +27926,6 @@
           <form>nearest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>near</form>
-          <form>nearer</form>
-          <form>nearest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>near</form>
-          <form>nearer</form>
-          <form>nearest</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>near</form>
@@ -28681,6 +28242,7 @@
       <part name="Noun">
         <forms>
           <form>nick</form>
+          <form>-</form>
           <form>nick's</form>
         </forms>
       </part>
@@ -28886,6 +28448,7 @@
       <part name="Noun">
         <forms>
           <form>nonsense</form>
+          <form>-</form>
           <form>nonsense's</form>
         </forms>
       </part>
@@ -28901,6 +28464,7 @@
       <part name="Noun">
         <forms>
           <form>noon</form>
+          <form>-</form>
           <form>noon's</form>
         </forms>
       </part>
@@ -29105,6 +28669,7 @@
       <part name="Noun">
         <forms>
           <form>now</form>
+          <form>-</form>
           <form>now's</form>
         </forms>
       </part>
@@ -29630,27 +29195,6 @@
           <form>old</form>
           <form>elder</form>
           <form>eldest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>old</form>
-          <form>older</form>
-          <form>oldest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>old</form>
-          <form>elder</form>
-          <form>eldest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>old</form>
-          <form>older</form>
-          <form>oldest</form>
         </forms>
       </part>
     </parts>
@@ -30805,6 +30349,7 @@
       <part name="Noun">
         <forms>
           <form>pat</form>
+          <form>-</form>
           <form>pat's</form>
         </forms>
       </part>
@@ -30865,6 +30410,7 @@
       <part name="Noun">
         <forms>
           <form>patience</form>
+          <form>-</form>
           <form>patience's</form>
         </forms>
       </part>
@@ -31224,6 +30770,7 @@
       <part name="Noun">
         <forms>
           <form>Percy</form>
+          <form>-</form>
           <form>Percy's</form>
         </forms>
       </part>
@@ -31453,6 +31000,7 @@
       <part name="Noun">
         <forms>
           <form>peter</form>
+          <form>-</form>
           <form>peter's</form>
         </forms>
       </part>
@@ -31644,6 +31192,7 @@
       <part name="Noun">
         <forms>
           <form>pierce</form>
+          <form>-</form>
           <form>pierce's</form>
         </forms>
       </part>
@@ -31931,6 +31480,7 @@
       <part name="Noun">
         <forms>
           <form>pity</form>
+          <form>-</form>
           <form>pity's</form>
         </forms>
       </part>
@@ -32196,6 +31746,7 @@
       <part name="Noun">
         <forms>
           <form>plenty</form>
+          <form>-</form>
           <form>plenty's</form>
         </forms>
       </part>
@@ -32404,6 +31955,7 @@
       <part name="Noun">
         <forms>
           <form>polish</form>
+          <form>-</form>
           <form>polish's</form>
         </forms>
       </part>
@@ -32450,6 +32002,7 @@
       <part name="Noun">
         <forms>
           <form>Pont</form>
+          <form>-</form>
           <form>Pont's</form>
         </forms>
       </part>
@@ -33481,6 +33034,7 @@
       <part name="Noun">
         <forms>
           <form>progress</form>
+          <form>-</form>
           <form>progress's</form>
         </forms>
       </part>
@@ -34456,6 +34010,7 @@
       <part name="Verb">
         <forms>
           <form>rain</form>
+          <form>-</form>
           <form>raining</form>
           <form>rained</form>
           <form>rains</form>
@@ -34647,6 +34202,7 @@
       <part name="Noun">
         <forms>
           <form>ray</form>
+          <form>-</form>
           <form>ray's</form>
         </forms>
       </part>
@@ -35067,6 +34623,7 @@
       <part name="Noun">
         <forms>
           <form>refuse</form>
+          <form>-</form>
           <form>refuse's</form>
         </forms>
       </part>
@@ -35431,6 +34988,7 @@
       <part name="Noun">
         <forms>
           <form>rep</form>
+          <form>-</form>
           <form>rep's</form>
         </forms>
       </part>
@@ -35602,6 +35160,7 @@
       <part name="Noun">
         <forms>
           <form>research</form>
+          <form>-</form>
           <form>research's</form>
         </forms>
       </part>
@@ -36318,6 +35877,7 @@
       <part name="Noun">
         <forms>
           <form>roger</form>
+          <form>-</form>
           <form>roger's</form>
         </forms>
       </part>
@@ -36970,6 +36530,7 @@
       <part name="Noun">
         <forms>
           <form>Sam</form>
+          <form>-</form>
           <form>Sam's</form>
         </forms>
       </part>
@@ -37110,6 +36671,7 @@
       <part name="Noun">
         <forms>
           <form>say</form>
+          <form>-</form>
           <form>say's</form>
         </forms>
       </part>
@@ -38380,22 +37942,6 @@
   </word>
   <word name="she">
     <parts>
-      <part name="PronounPerson2">
-        <forms>
-          <form>she</form>
-          <form>her</form>
-          <form>hers</form>
-          <form>herself</form>
-        </forms>
-      </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>she</form>
-          <form>her</form>
-          <form>hers</form>
-          <form>herself</form>
-        </forms>
-      </part>
       <part name="PronounPerson2">
         <forms>
           <form>she</form>
@@ -40048,20 +39594,6 @@
           <form>smallest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>small</form>
-          <form>smaller</form>
-          <form>smallest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>small</form>
-          <form>smaller</form>
-          <form>smallest</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>small</form>
@@ -40428,6 +39960,7 @@
       <part name="Verb">
         <forms>
           <form>snow</form>
+          <form>-</form>
           <form>snowing</form>
           <form>snowed</form>
           <form>snows</form>
@@ -40868,13 +40401,6 @@
   </word>
   <word name="soon">
     <parts>
-      <part name="Adverb">
-        <forms>
-          <form>soon</form>
-          <form>sooner</form>
-          <form>soonest</form>
-        </forms>
-      </part>
       <part name="Adverb">
         <forms>
           <form>soon</form>
@@ -41411,6 +40937,7 @@
       <part name="Noun">
         <forms>
           <form>spite</form>
+          <form>-</form>
           <form>spite's</form>
         </forms>
       </part>
@@ -42405,6 +41932,7 @@
       <part name="Noun">
         <forms>
           <form>Stephen</form>
+          <form>-</form>
           <form>Stephen's</form>
         </forms>
       </part>
@@ -42454,6 +41982,7 @@
       <part name="Noun">
         <forms>
           <form>steward</form>
+          <form>-</form>
           <form>steward's</form>
         </forms>
       </part>
@@ -42869,20 +42398,6 @@
           <form>strangest</form>
         </forms>
       </part>
-      <part name="Adverb">
-        <forms>
-          <form>strange</form>
-          <form>stranger</form>
-          <form>strangest</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>strange</form>
-          <form>stranger</form>
-          <form>strangest</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>strange</form>
@@ -43248,6 +42763,7 @@
       <part name="Noun">
         <forms>
           <form>stuff</form>
+          <form>-</form>
           <form>stuff's</form>
         </forms>
       </part>
@@ -43644,6 +43160,7 @@
       <part name="Noun">
         <forms>
           <form>sunlight</form>
+          <form>-</form>
           <form>sunlight's</form>
         </forms>
       </part>
@@ -43902,6 +43419,7 @@
       <part name="Noun">
         <forms>
           <form>Susan</form>
+          <form>-</form>
           <form>Susan's</form>
         </forms>
       </part>
@@ -44976,12 +44494,6 @@
           <form>those</form>
         </forms>
       </part>
-      <part name="Pronoun">
-        <forms>
-          <form>that</form>
-          <form>those</form>
-        </forms>
-      </part>
       <part name="PronounRelative">
         <forms>
           <form>that</form>
@@ -45072,24 +44584,6 @@
           <form>themselves</form>
         </forms>
       </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>they</form>
-          <form>them</form>
-          <form>their</form>
-          <form>theirs</form>
-          <form>themselves</form>
-        </forms>
-      </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>they</form>
-          <form>them</form>
-          <form>their</form>
-          <form>theirs</form>
-          <form>themselves</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="thick">
@@ -45097,6 +44591,7 @@
       <part name="Noun">
         <forms>
           <form>thick</form>
+          <form>-</form>
           <form>thick's</form>
         </forms>
       </part>
@@ -45188,14 +44683,6 @@
           <form>thinks</form>
         </forms>
       </part>
-      <part name="Verb">
-        <forms>
-          <form>think</form>
-          <form>thought</form>
-          <form>thinking</form>
-          <form>thinks</form>
-        </forms>
-      </part>
       <part name="Adjective">
         <forms>
           <form>think</form>
@@ -45277,12 +44764,6 @@
           <form>these</form>
         </forms>
       </part>
-      <part name="Pronoun">
-        <forms>
-          <form>this</form>
-          <form>these</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="Thomas">
@@ -45317,24 +44798,6 @@
   </word>
   <word name="thou">
     <parts>
-      <part name="PronounPerson2">
-        <forms>
-          <form>thou</form>
-          <form>thee</form>
-          <form>thy</form>
-          <form>thine</form>
-          <form>thyself</form>
-        </forms>
-      </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>thou</form>
-          <form>thee</form>
-          <form>thy</form>
-          <form>thine</form>
-          <form>thyself</form>
-        </forms>
-      </part>
       <part name="PronounPerson2">
         <forms>
           <form>thou</form>
@@ -46011,6 +45474,7 @@
       <part name="Noun">
         <forms>
           <form>Tom</form>
+          <form>-</form>
           <form>Tom's</form>
         </forms>
       </part>
@@ -46090,6 +45554,7 @@
       <part name="Noun">
         <forms>
           <form>tonight</form>
+          <form>-</form>
           <form>tonight's</form>
         </forms>
       </part>
@@ -46490,6 +45955,7 @@
       <part name="Noun">
         <forms>
           <form>traffic</form>
+          <form>-</form>
           <form>traffic's</form>
         </forms>
       </part>
@@ -47231,6 +46697,7 @@
       <part name="Noun">
         <forms>
           <form>twilight</form>
+          <form>-</form>
           <form>twilight's</form>
         </forms>
       </part>
@@ -47988,6 +47455,7 @@
       <part name="Noun">
         <forms>
           <form>usual</form>
+          <form>-</form>
           <form>usual's</form>
         </forms>
       </part>
@@ -48332,6 +47800,7 @@
       <part name="Noun">
         <forms>
           <form>vim</form>
+          <form>-</form>
           <form>vim's</form>
         </forms>
       </part>
@@ -48359,6 +47828,7 @@
       <part name="Noun">
         <forms>
           <form>violet</form>
+          <form>-</form>
           <form>violet's</form>
         </forms>
       </part>
@@ -48505,6 +47975,7 @@
       <part name="Noun">
         <forms>
           <form>wade</form>
+          <form>-</form>
           <form>wade's</form>
         </forms>
       </part>
@@ -48720,6 +48191,7 @@
       <part name="Noun">
         <forms>
           <form>want</form>
+          <form>-</form>
           <form>want's</form>
         </forms>
       </part>
@@ -48766,6 +48238,7 @@
       <part name="Noun">
         <forms>
           <form>ward</form>
+          <form>-</form>
           <form>ward's</form>
         </forms>
       </part>
@@ -48810,6 +48283,7 @@
       <part name="Noun">
         <forms>
           <form>warmth</form>
+          <form>-</form>
           <form>warmth's</form>
         </forms>
       </part>
@@ -49037,24 +48511,6 @@
           <form>ourselves</form>
         </forms>
       </part>
-      <part name="PronounPerson1">
-        <forms>
-          <form>we</form>
-          <form>us</form>
-          <form>our</form>
-          <form>ours</form>
-          <form>ourselves</form>
-        </forms>
-      </part>
-      <part name="PronounPerson1">
-        <forms>
-          <form>we</form>
-          <form>us</form>
-          <form>our</form>
-          <form>ours</form>
-          <form>ourselves</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="weak">
@@ -49085,6 +48541,7 @@
       <part name="Noun">
         <forms>
           <form>wealth</form>
+          <form>-</form>
           <form>wealth's</form>
         </forms>
       </part>
@@ -49107,6 +48564,7 @@
       <part name="Noun">
         <forms>
           <form>wear</form>
+          <form>-</form>
           <form>wear's</form>
         </forms>
       </part>
@@ -49340,20 +48798,6 @@
           <form>welled</form>
           <form>welling</form>
           <form>wells</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>well</form>
-          <form>better</form>
-          <form>best</form>
-        </forms>
-      </part>
-      <part name="Adverb">
-        <forms>
-          <form>well</form>
-          <form>better</form>
-          <form>best</form>
         </forms>
       </part>
       <part name="Adverb">
@@ -49621,6 +49065,7 @@
       <part name="Noun">
         <forms>
           <form>while</form>
+          <form>-</form>
           <form>while's</form>
         </forms>
       </part>
@@ -49757,20 +49202,6 @@
   </word>
   <word name="who">
     <parts>
-      <part name="PronounRelative">
-        <forms>
-          <form>who</form>
-          <form>whom</form>
-          <form>whose</form>
-        </forms>
-      </part>
-      <part name="PronounRelative">
-        <forms>
-          <form>who</form>
-          <form>whom</form>
-          <form>whose</form>
-        </forms>
-      </part>
       <part name="PronounRelative">
         <forms>
           <form>who</form>
@@ -49949,6 +49380,7 @@
       <part name="Noun">
         <forms>
           <form>will</form>
+          <form>-</form>
           <form>will's</form>
         </forms>
       </part>
@@ -49966,12 +49398,6 @@
           <form>would</form>
         </forms>
       </part>
-      <part name="ModalVerb">
-        <forms>
-          <form>will</form>
-          <form>would</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="William">
@@ -49979,6 +49405,7 @@
       <part name="Noun">
         <forms>
           <form>William</form>
+          <form>-</form>
           <form>William's</form>
         </forms>
       </part>
@@ -50030,14 +49457,6 @@
         <forms>
           <form>wind</form>
           <form>winded</form>
-          <form>winding</form>
-          <form>winds</form>
-        </forms>
-      </part>
-      <part name="Verb">
-        <forms>
-          <form>wind</form>
-          <form>wound</form>
           <form>winding</form>
           <form>winds</form>
         </forms>
@@ -50202,6 +49621,7 @@
       <part name="Noun">
         <forms>
           <form>wisdom</form>
+          <form>-</form>
           <form>wisdom's</form>
         </forms>
       </part>
@@ -50608,6 +50028,7 @@
       <part name="Noun">
         <forms>
           <form>worth</form>
+          <form>-</form>
           <form>worth's</form>
         </forms>
       </part>
@@ -50900,15 +50321,6 @@
           <form>yourselves</form>
         </forms>
       </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>ye</form>
-          <form>you</form>
-          <form>your</form>
-          <form>yours</form>
-          <form>yourselves</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="yeah">
@@ -51051,30 +50463,6 @@
           <form>yourselves</form>
         </forms>
       </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>you</form>
-          <form>your</form>
-          <form>yours</form>
-          <form>yourself</form>
-        </forms>
-      </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>you</form>
-          <form>your</form>
-          <form>yours</form>
-          <form>yourselves</form>
-        </forms>
-      </part>
-      <part name="PronounPerson2">
-        <forms>
-          <form>you</form>
-          <form>your</form>
-          <form>yours</form>
-          <form>yourself</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="young">
@@ -51083,13 +50471,6 @@
         <forms>
           <form>young</form>
           <form>young's</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>young</form>
-          <form>younger</form>
-          <form>youngest</form>
         </forms>
       </part>
       <part name="Adjective">
