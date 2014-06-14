@@ -53,9 +53,21 @@ namespace WordParser
                 {
                     var partElement = new XElement("part", new XAttribute("name", part.WordType), new XElement("forms"));
                     (wordElement.FirstNode as XElement).Add(partElement);
-                    foreach (var form in part.GetForms())
+                    if (part.WordType == WordType.Verb)
                     {
-                        (partElement.FirstNode as XElement).Add(new XElement("form", form));
+                        var verb = (Verb)part;
+                        foreach (var form in verb.GetForms(VerbType.Infinitive))
+                            (partElement.FirstNode as XElement).Add(new XElement("form", new XAttribute("level", (int)VerbType.Infinitive), form));
+                        foreach (var form in verb.GetForms(VerbType.Past))
+                            (partElement.FirstNode as XElement).Add(new XElement("form", new XAttribute("level", (int)VerbType.Past), form));
+                        foreach (var form in verb.GetForms(VerbType.PastParticiple))
+                            (partElement.FirstNode as XElement).Add(new XElement("form", new XAttribute("level", (int)VerbType.PastParticiple), form));
+                        foreach (var form in verb.GetForms(VerbType.PresentParticiple))
+                            (partElement.FirstNode as XElement).Add(new XElement("form", new XAttribute("level", (int)VerbType.PresentParticiple), form));
+                    }
+                    else
+                    {
+                        foreach (var form in part.GetForms()) (partElement.FirstNode as XElement).Add(new XElement("form", form));
                     }
                 }
             }
@@ -92,14 +104,15 @@ namespace WordParser
                         word.AddForms(forms);
                         break;
                     case "(Verb)":
-                        forms = ParseTab2(item, html);
-                        word = new Verb(forms[0]);
-                        word.AddForms(forms);
-                        break;
                     case "(Defective verb)":
-                        forms = ParseTab2(item, html);
-                        word = new Verb(forms[0]);
-                        word.AddForms(forms);
+                        string[] v1, v2, v3, v4;
+                        var name = ParseVerb(item, html, out v1, out v2, out v3, out v4);
+                        var verb = new Verb(name);
+                        verb.AddForms(v1, 1);
+                        verb.AddForms(v2, 2);
+                        verb.AddForms(v3, 3);
+                        verb.AddForms(v4, 4);
+                        word = verb;
                         break;
                     case "(Modal verb)":
                         forms = ParseSimple(item, html);
@@ -109,7 +122,7 @@ namespace WordParser
                     case "(Noun)":
                     case "(Feminine noun)":
                     case "(Masculine noun)":
-                        forms = ParseTab2(item, html);
+                        forms = ParseNoun(item, html);
                         word = new Noun(forms[0]);
                         word.AddForms(forms);
                         break;
@@ -220,7 +233,7 @@ namespace WordParser
             return list.Distinct().ToArray();
         }
 
-        private static string[] ParseTab2(HtmlNode item, HtmlDocument html)
+        private static string[] ParseNoun(HtmlNode item, HtmlDocument html)
         {
             var centerDiv = html.GetElementbyId("center");
             var childNodes = centerDiv.ChildNodes;
@@ -237,6 +250,44 @@ namespace WordParser
                 }
             }
             return list.Distinct().ToArray();
+        }
+
+        private static string ParseVerb(HtmlNode item, HtmlDocument html, out string[] v1, out string[] v2, out string[] v3, out string[] v4)
+        {
+            var list1 = new List<string>();
+            var list2 = new List<string>();
+            var list3 = new List<string>();
+            var list4 = new List<string>();
+
+            var centerDiv = html.GetElementbyId("center");
+            var childNodes = centerDiv.ChildNodes;
+            var startPosition = childNodes.IndexOf(item);
+            var table = childNodes.Skip(startPosition + 1).First(x => x.Name == "table");
+            foreach (var tr in table.ChildNodes.Where(x => x.Name == "tr"))
+            {
+                var el1 = tr.ChildNodes.FirstOrDefault(x => x.Name == "td" && x.Attributes.All(y => y.Name != "colspan"));
+                if (el1 != null)
+                {
+                    var el = tr.ChildNodes.LastOrDefault(x => x.Name == "td" && x.Attributes.All(y => y.Name != "colspan"));
+                    List<string> list;
+                    switch (el1.InnerText.Trim('\n', '-', ' '))
+                    {
+                        case "Past": list = list2; break;
+                        case "Present Participle": list = list4; break;
+                        case "Past Participle": list = list3; break;
+                        default: list = list1; break;
+                    }
+                    var text = el.InnerText.Trim('\n', '-');
+                    if (!string.IsNullOrWhiteSpace(text)) list.AddRange(text.Split(',').Select(x => x.Trim()));
+                }
+            }
+
+            v1 = list1.Distinct().ToArray();
+            v2 = list2.Distinct().ToArray();
+            v3 = list3.Distinct().ToArray();
+            v4 = list4.Distinct().ToArray();
+
+            return list1.First();
         }
     }
 }

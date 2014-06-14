@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common.Model.Enum;
+using System.Linq;
 
 namespace Common.Model
 {
@@ -11,7 +12,13 @@ namespace Common.Model
 
         public override string Key(string form)
         {
-            return KEY;
+            if (Forms.Any(x => x.Equals("be", StringComparison.InvariantCultureIgnoreCase))) return KEYB;
+            if (_formInfinitiveList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY1;
+            if (_formPastList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY2;
+            if (_formPresentParticipleList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY3;
+            if (_formPastParticipleList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY4;
+
+            throw new NotSupportedException();
         }
 
         public override WordType WordType
@@ -48,6 +55,23 @@ namespace Common.Model
             return formsList.ToArray();
         }
 
-        public const string KEY = @"V";
+        public void AddForms(IEnumerable<string> forms, int groupNum)
+        {
+            switch (groupNum)
+            {
+                case 1: _formInfinitiveList.AddRange(forms); break;
+                case 2: _formPastList.AddRange(forms); break;
+                case 3: _formPresentParticipleList.AddRange(forms); break;
+                case 4: _formPastParticipleList.AddRange(forms); break;
+            }
+
+            Forms.AddRange(forms.Where(x => Forms.All(y => !y.Equals(x, StringComparison.InvariantCultureIgnoreCase))));
+        }
+
+        public const string KEYB = @"B";
+        public const string KEY1 = @"V1";
+        public const string KEY2 = @"V2";
+        public const string KEY3 = @"V3";
+        public const string KEY4 = @"V4";
     }
 }

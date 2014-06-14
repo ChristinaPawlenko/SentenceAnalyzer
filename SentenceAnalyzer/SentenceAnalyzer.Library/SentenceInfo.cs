@@ -15,7 +15,7 @@
         /// <summary>
         /// All chunks of subject in a sentence
         /// </summary>
-        public Chunk[] Subject { get; internal set; }
+        public Chunk Subject { get; internal set; }
 
         /// <summary>
         /// All chunks of predicate in a sentence

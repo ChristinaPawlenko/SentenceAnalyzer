@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace SentenceAnalyzer
 {
@@ -17,34 +18,44 @@ namespace SentenceAnalyzer
 
         private void btnAnalyze_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(rtbSentenceContainer.Text))
+            try
             {
-                rtbSentenceContainer.Text = rtbSentenceContainer.Text.Trim();
-                rtbSentenceContainer.Text = rtbSentenceContainer.Text[0].ToString(CultureInfo.InvariantCulture).ToUpper() + rtbSentenceContainer.Text.Substring(1);
+                if (!string.IsNullOrWhiteSpace(rtbSentenceContainer.Text))
+                {
+                    rtbSentenceContainer.Text = rtbSentenceContainer.Text.Trim();
+                    rtbSentenceContainer.Text = rtbSentenceContainer.Text[0].ToString(CultureInfo.InvariantCulture).ToUpper() + rtbSentenceContainer.Text.Substring(1);
+                }
+
+                // Load Dictionary
+                var words = new WordCollection();
+                words.Load(Properties.Settings.Default.WordsDictionaryPath);
+
+                // Create sentance
+                var sentence = new Sentence(rtbSentenceContainer.Text);
+                sentence.SplitByWords(words);
+
+                // Find appropriate rule
+                var rule = Rules.FindRule(sentence);
+
+                // Get Info
+                var info = rule.Explain(sentence);
+
+                // Highlight subject and Predicate
+                SetColor(Color.Blue, info.Subject);
+                //SetColor(Color.Green, info.Predicate);
+
+                // Set Labels
+                SetLabels(info.Tense, info.Direction);
+                lblSubjectText.Text = info.Subject.Substring;
+                //lblPredicateText.Text = string.Join(", ", info.Predicate.Select(x => x.Substring)).Trim(',', ' ');
+
+                rtbSentenceContainer.Focus();
+                pnlInfo.Visible = true;
             }
-            
-            // todo: remove stub
-
-            var words = new WordCollection();
-            words.Load(Properties.Settings.Default.WordsDictionaryPath);
-
-
-            var s = new Sentence(rtbSentenceContainer.Text);
-            s.SplitByWords(words);
-
-            var rule = Rules.FindRule(s);
-
-            var info = rule.Explain(s);
-
-            llblTense.Text = info.Tense;
-            llblDirection.Text = info.Direction;
-
-            rtbSentenceContainer.Focus();
-
-            pnlInfo.Visible = rule != null;
-            if (rule != null)
+            catch
             {
-                llblTense.Text = rule.Name;
+                pnlInfo.Visible = false;
+                MessageBox.Show("Unsuccessful analyzing of sentence because of some reason", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -86,6 +97,68 @@ namespace SentenceAnalyzer
             {
                 // open page in a dafault browser
                 Process.Start(url);
+            }
+        }
+
+        private void SetLabels(string tense, string direction)
+        {
+            llblTense.Text = tense;
+            llblDirection.Text = direction;
+
+            llblTense.Links.Clear();
+            llblDirection.Links.Clear();
+
+            switch (tense)
+            {
+                case "Present Simple":
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.SimplePresentUrl);
+                    break;
+                case "PresentContinuousUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.PresentContinuousUrl); 
+                    break;
+                case "PresentPerfectUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.PresentPerfectUrl); 
+                    break;
+                case "PresentPerfectContinuousUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.PresentPerfectContinuousUrl); 
+                    break;
+                case "SimplePastUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.SimplePastUrl); 
+                    break;
+                case "PastContinuousUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.PastContinuousUrl); 
+                    break;
+                case "PastPerfectUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.PastPerfectUrl); 
+                    break;
+                case "PastPerfectContinuousUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.PastPerfectContinuousUrl); 
+                    break;
+                case "SimpleFutureUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.SimpleFutureUrl); 
+                    break;
+                case "FutureContinuousUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.FutureContinuousUrl); 
+                    break;
+                case "FuturePerfectUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.FuturePerfectUrl); 
+                    break;
+                case "FuturePerfectContinuousUrl": 
+                    llblTense.Links.Add(0, tense.Length, Properties.Settings.Default.FuturePerfectContinuousUrl); 
+                    break;
+            }
+
+            switch (direction)
+            {
+                case "Affirmative":
+                    llblDirection.Links.Add(0, tense.Length, Properties.Settings.Default.AffirmativeUrl); 
+                    break;
+                case "Negative":
+                    llblDirection.Links.Add(0, tense.Length, Properties.Settings.Default.NegativeUrl); 
+                    break;
+                case "Interrogative":
+                    llblDirection.Links.Add(0, tense.Length, Properties.Settings.Default.InterrogativeUrl); 
+                    break;
             }
         }
     }

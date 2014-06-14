@@ -49,7 +49,18 @@ namespace SentenceAnalyzer.Library
                 {
                     var wordType = (WordType)Enum.Parse(typeof(WordType), partElement.Attribute("name").Value, true);
                     var word = Word.Create(wordType, name);
-                    word.AddForms(partElement.Descendants("form").Select(x => x.Value));
+                    if (wordType == WordType.Verb)
+                    {
+                        var verb = (Verb)word;
+                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.Infinitive).ToString()).Select(x => x.Value), (int)VerbType.Infinitive);
+                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.Past).ToString()).Select(x => x.Value), (int)VerbType.Past);
+                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.PastParticiple).ToString()).Select(x => x.Value), (int)VerbType.PastParticiple);
+                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.PresentParticiple).ToString()).Select(x => x.Value), (int)VerbType.PresentParticiple);
+                    }
+                    else
+                    {
+                        word.AddForms(partElement.Descendants("form").Select(x => x.Value));
+                    }
                     Items.Add(word);
                 }
             }

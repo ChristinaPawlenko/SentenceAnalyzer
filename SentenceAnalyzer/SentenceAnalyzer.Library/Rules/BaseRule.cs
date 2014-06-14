@@ -5,20 +5,29 @@ namespace SentenceAnalyzer.Library.Rules
 {
     public abstract class BaseRule
     {
+        private const string LEFT_SUBJECT = "<&";
+        private const string RIGHT_SUBJECT = "&>";
+
+        private const string LEFT_PREDICAT = "<%";
+        private const string RIGHT_PREDICAT = "%>";
+
         #region Keys
-        protected readonly string A = WrapKey(Article.KEY);
-        protected readonly string Adv = WrapKey(Adverb.KEY);
-        protected readonly string Adj = WrapKey(Adjective.KEY);
-        protected readonly string P1 = WrapKey(Pronoun.KEY1);
-        protected readonly string P2 = WrapKey(Pronoun.KEY2);
-        protected readonly string PR = WrapKey(Pronoun.KEY_RELETIVE);
-        protected readonly string C = WrapKey(Conjunction.KEY);
-        protected readonly string N = WrapKey(Noun.KEY);
-        protected readonly string V = WrapKey(Verb.KEY);
-        protected readonly string I = WrapKey(Interjection.KEY);
-        protected readonly string MV = WrapKey(ModalVerb.KEY);
-        protected readonly string Pr = WrapKey(Preposition.KEY);
-        protected readonly string NOT = @"{not}";
+        protected static readonly string A = WrapKey(Article.KEY);
+        protected static readonly string Adv = WrapKey(Adverb.KEY);
+        protected static readonly string Adj = WrapKey(Adjective.KEY);
+        protected static readonly string P1 = WrapKey(Pronoun.KEY1);
+        protected static readonly string P2 = WrapKey(Pronoun.KEY2);
+        protected static readonly string PR = WrapKey(Pronoun.KEY_RELETIVE);
+        protected static readonly string C = WrapKey(Conjunction.KEY);
+        protected static readonly string N = WrapKey(Noun.KEY);
+        protected static readonly string B = WrapKey(Verb.KEYB);
+        protected static readonly string V1 = WrapKey(Verb.KEY1);
+        protected static readonly string V2 = WrapKey(Verb.KEY2);
+        protected static readonly string V3 = WrapKey(Verb.KEY3);
+        protected static readonly string V4 = WrapKey(Verb.KEY4);
+        protected static readonly string I = WrapKey(Interjection.KEY);
+        protected static readonly string MV = WrapKey(ModalVerb.KEY);
+        protected static readonly string Pr = WrapKey(Preposition.KEY);
         #endregion
 
         public abstract string Name { get; }
@@ -37,7 +46,7 @@ namespace SentenceAnalyzer.Library.Rules
             }
         }
 
-        protected string SubjectTemplate
+        internal static string SubjectTemplate
         {
             get
             {
@@ -46,7 +55,6 @@ namespace SentenceAnalyzer.Library.Rules
             }
         }
 
-        
         protected abstract string AffirmativeTemplate { get; }
         protected abstract string NegativeTemplate { get; }
         protected abstract string InterrogativeTemplate { get; }
@@ -54,19 +62,7 @@ namespace SentenceAnalyzer.Library.Rules
         public bool Verify(Sentence sentence)
         {
             var transformedSentence = sentence.Transform();
-            if (Regex.IsMatch(transformedSentence, InterrogativeTemplate))
-            {
-                return true;
-            }
-            else if (Regex.IsMatch(transformedSentence, NegativeTemplate))
-            {
-                return true;
-            }
-            else if (Regex.IsMatch(transformedSentence, AffirmativeTemplate))
-            {
-                return true;
-            }
-            return false;
+            return VerifyInner(sentence).HasValue;
         }
 
         private SentenceDirection? VerifyInner(Sentence sentence)
@@ -93,21 +89,40 @@ namespace SentenceAnalyzer.Library.Rules
             if (direction == null) return null;
 
             var transformedSentence = sentence.Transform();
+
+            var s = Regex.Replace(transformedSentence, AffirmativeTemplate, string.Format("$1{0}$6{1}$29", LEFT_SUBJECT, RIGHT_SUBJECT));
+
+            var s2 = Regex.Replace(s, @"({(\w+\|)*(V)(\|\w+)*})", string.Format("{0}$1{1}", LEFT_PREDICAT, RIGHT_PREDICAT));
+
+            var q = Regex.Match(transformedSentence, AffirmativeTemplate).Groups;
+
+            var test = Regex.Replace(transformedSentence, AffirmativeTemplate, "!$6!");
+
+            var subject = Regex.Match(transformedSentence, BaseRule.SubjectTemplate).Value;
+            var str = transformedSentence.Replace(subject, LEFT_SUBJECT + subject + RIGHT_SUBJECT);
+
+            var text = sentence.TransformBack(str);
+
+            var l = text.IndexOf(LEFT_SUBJECT);
+            var r = text.IndexOf(RIGHT_SUBJECT) - 2;
+
             switch (direction.Value)
             {
                 case SentenceDirection.Affirmative:
-                {
-                    transformedSentence = Regex.Replace(transformedSentence, SubjectTemplate, "&" + SubjectTemplate + "&");
-                        var mm = Regex.Matches(transformedSentence, SubjectTemplate);
-                        //todo get chunks
+                    {
+                        foreach (var pr in Regex.Matches(transformedSentence, V1))
+                        {
+
+                        }
                         break;
                     }
             }
 
             return new SentenceInfo
             {
-                Direction = direction.Value.ToString(),
+                Direction = direction.ToString(),
                 Tense = Name,
+                Subject = new Chunk(l, r, sentence.Text.Substring(l, r - l))
                 //Predicate = 
             };
         }

@@ -2,9 +2,9 @@
 {
     public enum VerbType
     {
-        Infinitive,
-        Past,
-        PresentParticiple,
-        PastParticiple
+        Infinitive = 1,
+        Past = 2,
+        PastParticiple = 3,
+        PresentParticiple = 4
     }
 }
