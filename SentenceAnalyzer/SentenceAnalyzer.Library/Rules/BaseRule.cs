@@ -1,6 +1,5 @@
 ﻿using Common.Model;
 using SentenceAnalyzer.Library.Rules.Enums;
-using System;
 using System.Text.RegularExpressions;
 namespace SentenceAnalyzer.Library.Rules
 {
@@ -10,7 +9,8 @@ namespace SentenceAnalyzer.Library.Rules
         protected readonly string A = WrapKey(Article.KEY);
         protected readonly string Adv = WrapKey(Adverb.KEY);
         protected readonly string Adj = WrapKey(Adjective.KEY);
-        protected readonly string P = WrapKey(Pronoun.KEY);
+        protected readonly string P1 = WrapKey(Pronoun.KEY1);
+        protected readonly string P2 = WrapKey(Pronoun.KEY2);
         protected readonly string PR = WrapKey(Pronoun.KEY_RELETIVE);
         protected readonly string C = WrapKey(Conjunction.KEY);
         protected readonly string N = WrapKey(Noun.KEY);
@@ -34,6 +34,15 @@ namespace SentenceAnalyzer.Library.Rules
             get
             {
                 return "";
+            }
+        }
+
+        protected string SubjectTemplate
+        {
+            get
+            {
+                return string.Format(@"(((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({3}\W({0}\W)?)*{4}))", C, P1, A, Adj, N);
+                //return string.Format(@"({0}\W)", P1);
             }
         }
 
@@ -87,8 +96,9 @@ namespace SentenceAnalyzer.Library.Rules
             switch (direction.Value)
             {
                 case SentenceDirection.Affirmative:
-                    {
-                        var mm = Regex.Matches(transformedSentence, AffirmativeSubjectTemplate);
+                {
+                    transformedSentence = Regex.Replace(transformedSentence, SubjectTemplate, "&" + SubjectTemplate + "&");
+                        var mm = Regex.Matches(transformedSentence, SubjectTemplate);
                         //todo get chunks
                         break;
                     }

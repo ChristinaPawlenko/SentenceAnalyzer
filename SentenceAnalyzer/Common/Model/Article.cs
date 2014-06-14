@@ -7,12 +7,16 @@ namespace Common.Model
         public Article(string text) : base(text)
         { }
 
+        public override string Key(string form)
+        {
+            return KEY;
+        }
+
         public override WordType WordType
         {
             get { return WordType.Article; }
         }
 
         public const string KEY = @"A";
-        public override string Key { get { return KEY; } }
     }
 }

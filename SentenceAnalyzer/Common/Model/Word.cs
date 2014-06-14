@@ -9,7 +9,7 @@ namespace Common.Model
     {
         private readonly string _name;
 
-        public abstract string Key { get; }
+        public abstract string Key(string form);
 
         protected Word(string text)
         {

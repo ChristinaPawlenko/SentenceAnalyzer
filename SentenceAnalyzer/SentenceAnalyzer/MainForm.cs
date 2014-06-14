@@ -1,16 +1,9 @@
-﻿using Common.Model;
+﻿using System.Globalization;
 using SentenceAnalyzer.Library;
 using SentenceAnalyzer.Library.Rules;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SentenceAnalyzer
@@ -27,7 +20,7 @@ namespace SentenceAnalyzer
             if (!string.IsNullOrWhiteSpace(rtbSentenceContainer.Text))
             {
                 rtbSentenceContainer.Text = rtbSentenceContainer.Text.Trim();
-                rtbSentenceContainer.Text = rtbSentenceContainer.Text[0].ToString().ToUpper() + rtbSentenceContainer.Text.Substring(1);
+                rtbSentenceContainer.Text = rtbSentenceContainer.Text[0].ToString(CultureInfo.InvariantCulture).ToUpper() + rtbSentenceContainer.Text.Substring(1);
             }
             
             // todo: remove stub

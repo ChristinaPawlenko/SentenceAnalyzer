@@ -13,6 +13,11 @@ namespace SentenceAnalyzer.Library
             ActiveForm = activeForm;
         }
 
+        public string Key
+        {
+            get { return Word.Key(ActiveForm); }
+        }
+
         public override string ToString()
         {
             return Word.ToString() + " active form: " + ActiveForm;

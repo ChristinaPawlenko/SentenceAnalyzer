@@ -1,4 +1,6 @@
-﻿using Common.Model.Enum;
+﻿using System;
+using System.Linq;
+using Common.Model.Enum;
 
 namespace Common.Model
 {
@@ -11,6 +13,18 @@ namespace Common.Model
             _wordType = wordType;
         }
 
+        public override string Key(string form)
+        {
+            switch (_wordType)
+            {
+                case WordType.PronounRelative: return KEY_RELETIVE;
+                default:
+                {
+                    return form.Equals(Forms.First(), StringComparison.InvariantCultureIgnoreCase) ? KEY1 : KEY2;
+                }
+            }
+        }
+
         public override WordType WordType
         {
             get { return _wordType; }
@@ -18,18 +32,8 @@ namespace Common.Model
 
         public QuantityType QuantityType { get; set; }
 
-        public const string KEY = @"P";
+        public const string KEY1 = @"P1";
+        public const string KEY2 = @"P2";
         public const string KEY_RELETIVE = @"PR";
-        public override string Key
-        {
-            get
-            {
-                switch (_wordType)
-                {
-                    case Enum.WordType.PronounRelative: return KEY_RELETIVE;
-                    default : return KEY;
-                }
-            }
-        }
     }
 }
