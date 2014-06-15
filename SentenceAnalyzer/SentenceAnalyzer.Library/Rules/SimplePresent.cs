@@ -6,7 +6,7 @@
         {
             get
             {
-                return string.Format(@"(^({1}\W)?)({0}+)((({2}\W)|(({3}\W)(to {3}\W)?)).*\.$)", SubjectTemplate, Adv, B, V1);
+                return string.Format(@"(^({1}|{6}\W)?)({0}+)((({2}\W?)|(({3}\W?)(to {3}\W?)?({4}\W?)?)|(({5}\W?)({3}\W?))).*\.$)", SubjectTemplate, Adv, B, V1, V4, MV, N);
             }
         }
 

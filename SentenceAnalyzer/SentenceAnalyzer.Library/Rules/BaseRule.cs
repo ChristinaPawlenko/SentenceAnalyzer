@@ -90,7 +90,7 @@ namespace SentenceAnalyzer.Library.Rules
 
             var transformedSentence = sentence.Transform();
 
-            var s = Regex.Replace(transformedSentence, AffirmativeTemplate, string.Format("$1{0}$6{1}$29", LEFT_SUBJECT, RIGHT_SUBJECT));
+            var s = Regex.Replace(transformedSentence, AffirmativeTemplate, string.Format("$1{0}$7{1}$31", LEFT_SUBJECT, RIGHT_SUBJECT));
 
             var s2 = Regex.Replace(s, @"({(\w+\|)*(V)(\|\w+)*})", string.Format("{0}$1{1}", LEFT_PREDICAT, RIGHT_PREDICAT));
 
@@ -101,7 +101,7 @@ namespace SentenceAnalyzer.Library.Rules
             var subject = Regex.Match(transformedSentence, BaseRule.SubjectTemplate).Value;
             var str = transformedSentence.Replace(subject, LEFT_SUBJECT + subject + RIGHT_SUBJECT);
 
-            var text = sentence.TransformBack(str);
+            var text = sentence.TransformBack(s);
 
             var l = text.IndexOf(LEFT_SUBJECT);
             var r = text.IndexOf(RIGHT_SUBJECT) - 2;

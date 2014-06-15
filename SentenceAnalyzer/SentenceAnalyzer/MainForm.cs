@@ -41,8 +41,8 @@ namespace SentenceAnalyzer
                 var info = rule.Explain(sentence);
 
                 // Highlight subject and Predicate
-                SetColor(Color.Blue, info.Subject);
-                //SetColor(Color.Green, info.Predicate);
+                SetColor(Color.OrangeRed, info.Subject);
+                //SetColor(Color.LawnGreen, info.Predicate);
 
                 // Set Labels
                 SetLabels(info.Tense, info.Direction);

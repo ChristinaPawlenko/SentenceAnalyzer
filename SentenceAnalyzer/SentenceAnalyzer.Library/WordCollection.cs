@@ -52,10 +52,10 @@ namespace SentenceAnalyzer.Library
                     if (wordType == WordType.Verb)
                     {
                         var verb = (Verb)word;
-                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.Infinitive).ToString()).Select(x => x.Value), (int)VerbType.Infinitive);
-                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.Past).ToString()).Select(x => x.Value), (int)VerbType.Past);
-                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.PastParticiple).ToString()).Select(x => x.Value), (int)VerbType.PastParticiple);
-                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.PresentParticiple).ToString()).Select(x => x.Value), (int)VerbType.PresentParticiple);
+                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.Infinitive).ToString()).Select(x => x.Value), VerbType.Infinitive);
+                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.Past).ToString()).Select(x => x.Value), VerbType.Past);
+                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.PastParticiple).ToString()).Select(x => x.Value), VerbType.PastParticiple);
+                        verb.AddForms(partElement.Descendants("form").Where(x=>x.Attribute("level").Value == ((int)VerbType.PresentParticiple).ToString()).Select(x => x.Value), VerbType.PresentParticiple);
                     }
                     else
                     {

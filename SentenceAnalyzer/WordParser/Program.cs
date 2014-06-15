@@ -108,10 +108,10 @@ namespace WordParser
                         string[] v1, v2, v3, v4;
                         var name = ParseVerb(item, html, out v1, out v2, out v3, out v4);
                         var verb = new Verb(name);
-                        verb.AddForms(v1, 1);
-                        verb.AddForms(v2, 2);
-                        verb.AddForms(v3, 3);
-                        verb.AddForms(v4, 4);
+                        verb.AddForms(v1, VerbType.Infinitive);
+                        verb.AddForms(v2, VerbType.Past);
+                        verb.AddForms(v3, VerbType.PastParticiple);
+                        verb.AddForms(v4, VerbType.PresentParticiple);
                         word = verb;
                         break;
                     case "(Modal verb)":

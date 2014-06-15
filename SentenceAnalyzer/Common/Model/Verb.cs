@@ -55,14 +55,14 @@ namespace Common.Model
             return formsList.ToArray();
         }
 
-        public void AddForms(IEnumerable<string> forms, int groupNum)
+        public void AddForms(IEnumerable<string> forms, VerbType verbType)
         {
-            switch (groupNum)
+            switch (verbType)
             {
-                case 1: _formInfinitiveList.AddRange(forms); break;
-                case 2: _formPastList.AddRange(forms); break;
-                case 3: _formPresentParticipleList.AddRange(forms); break;
-                case 4: _formPastParticipleList.AddRange(forms); break;
+                case VerbType.Infinitive: _formInfinitiveList.AddRange(forms); break;
+                case VerbType.Past: _formPastList.AddRange(forms); break;
+                case VerbType.PastParticiple: _formPastParticipleList.AddRange(forms); break;
+                case VerbType.PresentParticiple: _formPresentParticipleList.AddRange(forms); break;
             }
 
             Forms.AddRange(forms.Where(x => Forms.All(y => !y.Equals(x, StringComparison.InvariantCultureIgnoreCase))));
