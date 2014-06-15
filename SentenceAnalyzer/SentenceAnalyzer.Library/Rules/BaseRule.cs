@@ -39,7 +39,6 @@ namespace SentenceAnalyzer.Library.Rules
             return string.Format(@"\{{(\w+\|)*{0}(\|\w+)*\}}", key);
         }
 
-        //protected readonly string SubjectTemplate = string.Format(@"(((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({3}\W({0}\W)?)*{4}))", C, P1, A, Adj, N);
         protected readonly string SubjectTemplate = string.Format(@"(({0}\W+)?({1}\W+)?|((({2}\W+)|({3}\W+))?({4}\W+)*({5}\W+)))", C, P1, A, P2, Adj, N); 
 
         protected abstract string AffirmativeTemplate { get; }
@@ -96,8 +95,8 @@ namespace SentenceAnalyzer.Library.Rules
                     format = string.Format(InterrogativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
                     template = InterrogativeTemplate;
 
-                    var value = Regex.Match(transformedSentence, template).Groups[10].Value;
-                    if (!value.Contains("MV") && !value.Contains("B")) format = format.Replace("<%$10%>", "$10");
+                    var value = Regex.Match(transformedSentence, template).Groups[9].Value;
+                    if (!value.Contains("MV") && !value.Contains("B")) format = format.Replace("<%$9%>", "$9");
 
                     break;
                 default: throw new NotSupportedException(direction.Value.ToString());

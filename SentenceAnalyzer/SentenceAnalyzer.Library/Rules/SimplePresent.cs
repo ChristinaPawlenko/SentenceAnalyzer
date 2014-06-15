@@ -5,7 +5,7 @@
         protected override string AffirmativeMask { get { return "$1{0}$5{1}$27{2}$31{3}$52"; } }
         // todo: change
         protected override string NegativeMask { get { return "$1{0}$7{1}{2}$30{3}$51"; } }
-        protected override string InterrogativeMask { get { return "$3{2}$10{3}{0}$22{1}{2}$49{3}$59"; } }
+        protected override string InterrogativeMask { get { return "$3{2}$9{3}{0}$22{1}$45{2}$49{3}$59"; } }
 
         protected override string AffirmativeTemplate
         {
