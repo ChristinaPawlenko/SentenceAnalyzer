@@ -38011,15 +38011,6 @@
           <form>schools'</form>
         </forms>
       </part>
-      <part name="Verb">
-        <forms>
-          <form level="1">school</form>
-          <form level="1">schools</form>
-          <form level="2">schooled</form>
-          <form level="3">schooled</form>
-          <form level="4">schooling</form>
-        </forms>
-      </part>
     </parts>
   </word>
   <word name="science">
