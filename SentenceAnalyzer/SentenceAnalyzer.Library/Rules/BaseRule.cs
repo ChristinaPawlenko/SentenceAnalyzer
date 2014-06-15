@@ -95,6 +95,10 @@ namespace SentenceAnalyzer.Library.Rules
                 case SentenceDirection.Interrogative:
                     format = string.Format(InterrogativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
                     template = InterrogativeTemplate;
+
+                    var value = Regex.Match(transformedSentence, template).Groups[10].Value;
+                    if (!value.Contains("MV") && !value.Contains("B")) format = format.Replace("<%$10%>", "$10");
+
                     break;
                 default: throw new NotSupportedException(direction.Value.ToString());
             }

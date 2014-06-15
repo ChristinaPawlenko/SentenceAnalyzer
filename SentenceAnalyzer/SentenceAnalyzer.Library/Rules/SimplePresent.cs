@@ -19,7 +19,7 @@
 
         protected override string InterrogativeTemplate
         {
-            get { return string.Format(@"(^(({1}\W)|({6}\W))((({3}\W)?)|(({2}\W)?)|(({5}\W)?))({0}+)(({1}\W)?((({3}\W?)(to {3}\W?)?({4}\W?)?))(.*\?$)))", SubjectTemplate, Adv, B, V1, V4, Mv, C); }
+            get { return string.Format(@"(^(({1}\W)|({6}\W))?((({3}\W)?)|(({2}\W)?)|(({5}\W)?))({0}+)(({1}\W)?((({3}\W?)(to {3}\W?)?({4}\W?)?))(.*\?$)))", SubjectTemplate, Adv, B, V1, V4, Mv, C); }
         }
 
         public override string Name { get { return @"Present Simple"; } }
