@@ -41,13 +41,13 @@ namespace SentenceAnalyzer
                 var info = rule.Explain(sentence);
 
                 // Highlight subject and Predicate
-                SetColor(Color.OrangeRed, info.Subject);
-                //SetColor(Color.LawnGreen, info.Predicate);
+                SetColor(true, Color.OrangeRed, info.Subject);
+                SetColor(false, Color.LawnGreen, info.Predicate);
 
                 // Set Labels
                 SetLabels(info.Tense, info.Direction);
                 lblSubjectText.Text = info.Subject.Substring;
-                //lblPredicateText.Text = string.Join(", ", info.Predicate.Select(x => x.Substring)).Trim(',', ' ');
+                lblPredicateText.Text = string.Join(", ", info.Predicate.Select(x => x.Substring)).Trim(',', ' ');
 
                 rtbSentenceContainer.Focus();
                 pnlInfo.Visible = true;
@@ -66,15 +66,18 @@ namespace SentenceAnalyzer
             rtbSentenceContainer.Focus();
         }
 
-        private void SetColor(Color color, params Chunk[] chunks)
+        private void SetColor(bool needClear, Color color, params Chunk[] chunks)
         {
             // store cursor position
             var bkpPos = rtbSentenceContainer.SelectionStart;
 
             // clear formatting
-            rtbSentenceContainer.SelectionStart = 0;
-            rtbSentenceContainer.SelectionLength = rtbSentenceContainer.Text.Length;
-            rtbSentenceContainer.SelectionColor = Color.Black;
+            if (needClear)
+            {
+                rtbSentenceContainer.SelectionStart = 0;
+                rtbSentenceContainer.SelectionLength = rtbSentenceContainer.Text.Length;
+                rtbSentenceContainer.SelectionColor = Color.Black;
+            }
 
             // mark all chunks
             foreach (var chunk in chunks)

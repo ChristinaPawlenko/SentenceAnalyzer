@@ -1,5 +1,7 @@
 ﻿using Common.Model;
 using SentenceAnalyzer.Library.Rules.Enums;
+using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 namespace SentenceAnalyzer.Library.Rules
 {
@@ -37,23 +39,7 @@ namespace SentenceAnalyzer.Library.Rules
             return string.Format(@"\{{(\w+\|)*{0}(\|\w+)*\}}", key);
         }
 
-        //todo: make abstract
-        protected virtual string AffirmativeSubjectTemplate
-        {
-            get
-            {
-                return "";
-            }
-        }
-
-        internal static string SubjectTemplate
-        {
-            get
-            {
-                return string.Format(@"(((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({3}\W({0}\W)?)*{4}))", C, P1, A, Adj, N);
-                //return string.Format(@"({0}\W)", P1);
-            }
-        }
+        protected readonly string SubjectTemplate = string.Format(@"(((({0}\W)?({1}\W))|({0}\W)?({2}\W)?({3}\W({0}\W)?)*{4}))", C, P1, A, Adj, N); 
 
         protected abstract string AffirmativeTemplate { get; }
         protected abstract string NegativeTemplate { get; }
@@ -83,6 +69,11 @@ namespace SentenceAnalyzer.Library.Rules
             return null;
         }
 
+        // todo to abstract
+        protected virtual string AffirmativeMask { get { return "$1{0}$7{1}{2}$30{3}$51"; } }
+        protected virtual string NegativeMask { get { return "$1{0}$7{1}{2}$30{3}$51"; } }
+        protected virtual string InterrogativeMask { get { return "$1{0}$7{1}{2}$30{3}$51"; } }
+
         public SentenceInfo Explain(Sentence sentence)
         {
             var direction = VerifyInner(sentence);
@@ -90,40 +81,54 @@ namespace SentenceAnalyzer.Library.Rules
 
             var transformedSentence = sentence.Transform();
 
-            var s = Regex.Replace(transformedSentence, AffirmativeTemplate, string.Format("$1{0}$7{1}$31", LEFT_SUBJECT, RIGHT_SUBJECT));
-
-            var s2 = Regex.Replace(s, @"({(\w+\|)*(V)(\|\w+)*})", string.Format("{0}$1{1}", LEFT_PREDICAT, RIGHT_PREDICAT));
-
+            // todo: remove
             var q = Regex.Match(transformedSentence, AffirmativeTemplate).Groups;
 
-            var test = Regex.Replace(transformedSentence, AffirmativeTemplate, "!$6!");
-
-            var subject = Regex.Match(transformedSentence, BaseRule.SubjectTemplate).Value;
-            var str = transformedSentence.Replace(subject, LEFT_SUBJECT + subject + RIGHT_SUBJECT);
-
-            var text = sentence.TransformBack(s);
-
-            var l = text.IndexOf(LEFT_SUBJECT);
-            var r = text.IndexOf(RIGHT_SUBJECT) - 2;
-
+            string format;
             switch (direction.Value)
             {
                 case SentenceDirection.Affirmative:
-                    {
-                        foreach (var pr in Regex.Matches(transformedSentence, V1))
-                        {
+                    format = string.Format(AffirmativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
+                    break;
+                case SentenceDirection.Negative:
+                    format = string.Format(NegativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
+                    break;
+                case SentenceDirection.Interrogative:
+                    format = string.Format(InterrogativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
+                    break;
+                default: throw new NotSupportedException(direction.Value.ToString());
+            }
 
-                        }
-                        break;
-                    }
+            var text = sentence.TransformBack(Regex.Replace(transformedSentence, AffirmativeTemplate, format));
+
+            int l, r, redundantSymbolsCount;
+
+            // Subject Chunck
+            l = text.IndexOf(LEFT_SUBJECT);
+            r = text.IndexOf(RIGHT_SUBJECT) - 2;
+            var subjectChunk = new Chunk(l, r, sentence.Text.Substring(l, r - l));
+            redundantSymbolsCount = LEFT_SUBJECT.Length + RIGHT_SUBJECT.Length;
+
+            // Predicate Chuncks
+            var predicateChuncks = new List<Chunk>();
+            l = text.IndexOf(LEFT_PREDICAT) - redundantSymbolsCount;
+            r = text.IndexOf(RIGHT_PREDICAT) - 2 - redundantSymbolsCount;
+
+            while (l > -1)
+            {
+                redundantSymbolsCount += LEFT_PREDICAT.Length + RIGHT_PREDICAT.Length;
+                predicateChuncks.Add(new Chunk(l, r, sentence.Text.Substring(l, r - l)));
+
+                l = text.IndexOf(LEFT_PREDICAT, r) - redundantSymbolsCount;
+                if (l > -1) r = text.IndexOf(RIGHT_SUBJECT, l) - 2 - redundantSymbolsCount;
             }
 
             return new SentenceInfo
             {
                 Direction = direction.ToString(),
                 Tense = Name,
-                Subject = new Chunk(l, r, sentence.Text.Substring(l, r - l))
-                //Predicate = 
+                Subject = subjectChunk,
+                Predicate = predicateChuncks.ToArray()
             };
         }
     }

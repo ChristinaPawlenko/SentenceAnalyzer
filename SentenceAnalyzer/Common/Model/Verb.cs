@@ -15,8 +15,8 @@ namespace Common.Model
             if (Forms.Any(x => x.Equals("be", StringComparison.InvariantCultureIgnoreCase))) return KEYB;
             if (_formInfinitiveList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY1;
             if (_formPastList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY2;
-            if (_formPresentParticipleList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY3;
-            if (_formPastParticipleList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY4;
+            if (_formPastParticipleList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY3;
+            if (_formPresentParticipleList.Any(x => x.Equals(form, StringComparison.InvariantCultureIgnoreCase))) return KEY4;
 
             throw new NotSupportedException();
         }
