@@ -41,7 +41,7 @@ namespace SentenceAnalyzer
                 var info = rule.Explain(sentence);
 
                 // Highlight subject and Predicate
-                SetColor(true, Color.OrangeRed, info.Subject);
+                SetColor(true, Color.Orange, info.Subject);
                 SetColor(false, Color.LawnGreen, info.Predicate);
 
                 // Set Labels
@@ -55,7 +55,7 @@ namespace SentenceAnalyzer
             catch
             {
                 pnlInfo.Visible = false;
-                MessageBox.Show("Unsuccessful analyzing of sentence because of some reason", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"Unsuccessful analyzing of sentence because of some reason", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
