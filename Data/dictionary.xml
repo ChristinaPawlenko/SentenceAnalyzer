@@ -14116,21 +14116,6 @@
   </word>
   <word name="either">
     <parts>
-      <part name="Adverb">
-        <forms>
-          <form>either</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>either</form>
-        </forms>
-      </part>
-      <part name="QuantitativePronoun">
-        <forms>
-          <form>either</form>
-        </forms>
-      </part>
       <part name="Conjunction">
         <forms>
           <form>either</form>
@@ -28922,21 +28907,6 @@
   </word>
   <word name="neither">
     <parts>
-      <part name="Adverb">
-        <forms>
-          <form>neither</form>
-        </forms>
-      </part>
-      <part name="Adjective">
-        <forms>
-          <form>neither</form>
-        </forms>
-      </part>
-      <part name="QuantitativePronoun">
-        <forms>
-          <form>neither</form>
-        </forms>
-      </part>
       <part name="Conjunction">
         <forms>
           <form>neither</form>
