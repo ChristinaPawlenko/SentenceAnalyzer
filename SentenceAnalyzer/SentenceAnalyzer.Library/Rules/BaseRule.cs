@@ -81,41 +81,53 @@ namespace SentenceAnalyzer.Library.Rules
             var transformedSentence = sentence.Transform();
 
             string format;
+            string template;
             switch (direction.Value)
             {
                 case SentenceDirection.Affirmative:
                     format = string.Format(AffirmativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
+                    template = AffirmativeTemplate;
                     break;
                 case SentenceDirection.Negative:
                     format = string.Format(NegativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
+                    template = NegativeTemplate;
                     break;
                 case SentenceDirection.Interrogative:
                     format = string.Format(InterrogativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
+                    template = InterrogativeTemplate;
                     break;
                 default: throw new NotSupportedException(direction.Value.ToString());
             }
 
-            var replace = Regex.Replace(transformedSentence, AffirmativeTemplate, format);
+            var replace = Regex.Replace(transformedSentence, template, format);
             var text = sentence.TransformBack(replace);
 
-            // Subject Chunck
-            var l = text.IndexOf(LEFT_SUBJECT, StringComparison.Ordinal);
-            var r = text.IndexOf(RIGHT_SUBJECT, StringComparison.Ordinal) - 2;
-            var subjectChunk = new Chunk(l, r, sentence.Text.Substring(l, r - l));
-            var redundantSymbolsCount = LEFT_SUBJECT.Length + RIGHT_SUBJECT.Length;
-
-            // Predicate Chuncks
+            var redundantSymbolsCount = 0;
+            var l = Math.Min(text.IndexOf(LEFT_SUBJECT, StringComparison.Ordinal), text.IndexOf(LEFT_PREDICAT, StringComparison.Ordinal));
+            var r = Math.Min(text.IndexOf(RIGHT_SUBJECT, StringComparison.Ordinal), text.IndexOf(RIGHT_PREDICAT, StringComparison.Ordinal)) - 2;
+            
+            Chunk subjectChunk = null;
             var predicateChuncks = new List<Chunk>();
-            l = text.IndexOf(LEFT_PREDICAT, StringComparison.Ordinal) - redundantSymbolsCount;
-            r = text.IndexOf(RIGHT_PREDICAT, StringComparison.Ordinal) - 2 - redundantSymbolsCount;
-
             while (l > -1)
             {
-                redundantSymbolsCount += LEFT_PREDICAT.Length + RIGHT_PREDICAT.Length;
-                predicateChuncks.Add(new Chunk(l, r, sentence.Text.Substring(l, r - l)));
+                if (text.Substring(l + redundantSymbolsCount, 2) == LEFT_SUBJECT)
+                {
+                    subjectChunk = new Chunk(l, r, sentence.Text.Substring(l, r - l));
+                }
+                else
+                {
+                    predicateChuncks.Add(new Chunk(l, r, sentence.Text.Substring(l, r - l)));
+                }
 
-                l = text.IndexOf(LEFT_PREDICAT, r + redundantSymbolsCount, StringComparison.Ordinal) - redundantSymbolsCount;
-                if (l > -1) r = text.IndexOf(RIGHT_PREDICAT, l + redundantSymbolsCount, StringComparison.Ordinal) - 2 - redundantSymbolsCount;
+                redundantSymbolsCount += 4;
+                var ls = text.IndexOf(LEFT_SUBJECT, r + redundantSymbolsCount, StringComparison.Ordinal);
+                var lp = text.IndexOf(LEFT_PREDICAT, r + redundantSymbolsCount, StringComparison.Ordinal);
+                l = ls < 0 || lp < 0 ? Math.Max(ls, lp) - redundantSymbolsCount : Math.Min(ls, lp) - redundantSymbolsCount;
+                
+                if (l <= -1) continue;
+                var rs = text.IndexOf(RIGHT_SUBJECT, l + redundantSymbolsCount, StringComparison.Ordinal);
+                var rp = text.IndexOf(RIGHT_PREDICAT, l + redundantSymbolsCount, StringComparison.Ordinal);
+                r = rs < 0 || rp < 0 ? Math.Max(rs, rp) - 2 - redundantSymbolsCount : Math.Min(rs, rp) - 2 - redundantSymbolsCount;
             }
 
             return new SentenceInfo
