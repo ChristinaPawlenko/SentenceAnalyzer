@@ -14,5 +14,10 @@
         }
 
         public int Length { get { return EndPosition - StartPosition; } }
+
+        public override string ToString()
+        {
+            return Substring;
+        }
     }
 }

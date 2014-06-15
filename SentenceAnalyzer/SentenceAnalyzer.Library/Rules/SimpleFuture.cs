@@ -18,6 +18,21 @@ namespace SentenceAnalyzer.Library.Rules
             get { return "not_supported"; }
         }
 
+        protected override string AffirmativeMask
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        protected override string NegativeMask
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        protected override string InterrogativeMask
+        {
+            get { throw new NotImplementedException(); }
+        }
+
         public override string Name
         {
             get { return @"Simple Future"; }
