@@ -54,7 +54,7 @@
             this.helpProvider1.SetShowHelp(this.rtbSentenceContainer, true);
             this.rtbSentenceContainer.Size = new System.Drawing.Size(450, 155);
             this.rtbSentenceContainer.TabIndex = 0;
-            this.rtbSentenceContainer.Text = "Today i do not like to eat it.";
+            this.rtbSentenceContainer.Text = "";
             // 
             // btnAnalyze
             // 
