@@ -6409,14 +6409,6 @@
   </word>
   <word name="can">
     <parts>
-      <part name="Noun">
-        <forms>
-          <form>can</form>
-          <form>cans</form>
-          <form>can's</form>
-          <form>cans'</form>
-        </forms>
-      </part>
       <part name="Verb">
         <forms>
           <form level="1">can</form>

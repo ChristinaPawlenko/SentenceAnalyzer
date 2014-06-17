@@ -90,13 +90,17 @@ namespace SentenceAnalyzer.Library.Rules
                 case SentenceDirection.Negative:
                     format = string.Format(NegativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
                     template = NegativeTemplate;
+
+                    var m1 = Regex.Match(transformedSentence, template).Groups[18].Value;
+                    if (!m1.Contains("MV") && !m1.Contains("B")) format = format.Replace("<%$18%>", "$18");
+
                     break;
                 case SentenceDirection.Interrogative:
                     format = string.Format(InterrogativeMask, LEFT_SUBJECT, RIGHT_SUBJECT, LEFT_PREDICAT, RIGHT_PREDICAT);
                     template = InterrogativeTemplate;
 
-                    var value = Regex.Match(transformedSentence, template).Groups[9].Value;
-                    if (!value.Contains("MV") && !value.Contains("B")) format = format.Replace("<%$9%>", "$9");
+                    var m2 = Regex.Match(transformedSentence, template).Groups[9].Value;
+                    if (!m2.Contains("MV") && !m2.Contains("B")) format = format.Replace("<%$9%>", "$9");
 
                     break;
                 default: throw new NotSupportedException(direction.Value.ToString());
