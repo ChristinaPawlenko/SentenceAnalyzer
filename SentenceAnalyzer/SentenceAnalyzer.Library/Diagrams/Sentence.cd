@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Comment CommentText="Class provides methods and properties for sentence description">
+    <Position X="1.812" Y="0.906" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Description of sentence with the information about the tense, direction and positions of subject and predicate">
+    <Position X="5.146" Y="0.771" Height="0.896" Width="1.908" />
+  </Comment>
+  <Comment CommentText="Piece of sentence (used for description of location the subject and the predicate)">
+    <Position X="7.396" Y="3.812" Height="0.677" Width="1.7" />
+  </Comment>
+  <Comment CommentText="The method &quot;Explain&quot; provides whole information about the sentence ">
+    <Position X="10.646" Y="1.844" Height="0.802" Width="1.7" />
+  </Comment>
+  <Class Name="SentenceAnalyzer.Library.Sentence">
+    <Position X="1.75" Y="1.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAgECAAAAAQAEAAAAAQAAAAACAAEgAA=</HashCode>
+      <FileName>Sentence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.SentenceInfo">
+    <Position X="5.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAKAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SentenceInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Chunk">
+    <Position X="5.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQEEAAAAAEAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chunk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.BaseRule">
+    <Position X="8" Y="0.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAIAAQIAAAJCAQAGgAAABQwABCCAAgAAABEAozGABEA=</HashCode>
+      <FileName>Rules\BaseRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

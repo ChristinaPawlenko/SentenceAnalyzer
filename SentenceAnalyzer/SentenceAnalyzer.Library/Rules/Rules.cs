@@ -1,5 +1,4 @@
-﻿using System;
-namespace SentenceAnalyzer.Library.Rules
+﻿namespace SentenceAnalyzer.Library.Rules
 {
     public static class Rules
     {

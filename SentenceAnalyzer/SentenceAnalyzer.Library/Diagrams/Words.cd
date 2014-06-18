@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Static collection class that can load words from xml file and find the word by name">
+    <Position X="4.681" Y="4.569" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Wrapper for class word with additional information about active form">
+    <Position X="8.847" Y="7.264" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Base class for the word with a general behavior">
+    <Position X="9.153" Y="0.5" Height="0.611" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Each inherited class implements the logic for a particular part of speech">
+    <Position X="11.542" Y="5.792" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="SentenceAnalyzer.Library.WordWrapper">
+    <Position X="7.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAgAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WordWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.WordCollection">
+    <Position X="4.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>WordCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common.Model.Adjective" Collapsed="true">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Adverb" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Article" Collapsed="true">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Conjunction" Collapsed="true">
+    <Position X="7.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.ModalVerb" Collapsed="true">
+    <Position X="11.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Noun" Collapsed="true">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Numeral" Collapsed="true">
+    <Position X="7.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Preposition" Collapsed="true">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Pronoun" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Verb" Collapsed="true">
+    <Position X="11.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Common.Model.Word">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Interjection" Collapsed="true">
+    <Position X="11.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

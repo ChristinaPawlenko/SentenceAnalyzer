@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Find the appropriate rule by a sentence">
+    <Position X="13.111" Y="8.708" Height="0.569" Width="1.7" />
+  </Comment>
+  <Comment CommentText="The base class for the rule defines the general behavior and implements the common methods">
+    <Position X="9.361" Y="0.931" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Each rule implements the logic for particular tense">
+    <Position X="6.708" Y="0.806" Height="0.639" Width="1.464" />
+  </Comment>
+  <Comment CommentText="Static class which can be used for finding an appropriate rule">
+    <Position X="13.069" Y="4.903" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="SentenceAnalyzer.Library.Rules.BaseRule">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAQIAAAJCAQAGgAAABQwABCCAAgAAABEAozGABEA=</HashCode>
+      <FileName>Rules\BaseRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.FutureContinuous" Collapsed="true">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\FutureContinuous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.FuturePerfect" Collapsed="true">
+    <Position X="6.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\FuturePerfect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.FuturePerfectContinuous" Collapsed="true">
+    <Position X="6.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\FuturePerfectContinuous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.PastContinuous" Collapsed="true">
+    <Position X="6.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\PastContinuous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.PastPerfect" Collapsed="true">
+    <Position X="6.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\PastPerfect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.PastPerfectContinuous" Collapsed="true">
+    <Position X="6.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\PastPerfectContinuous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.PresentContinuous" Collapsed="true">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\PresentContinuous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.PresentPerfect" Collapsed="true">
+    <Position X="6.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\PresentPerfect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.PresentPerfectContinuous" Collapsed="true">
+    <Position X="6.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\PresentPerfectContinuous.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.Rules">
+    <Position X="11.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAIAAABAAAAAgAAAAAAggAABEAAAQABAAAAAEAQAA=</HashCode>
+      <FileName>Rules\Rules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.SimpleFuture" Collapsed="true">
+    <Position X="6.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\SimpleFuture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.SimplePast" Collapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\SimplePast.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceAnalyzer.Library.Rules.SimplePresent">
+    <Position X="11.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAJCAAACAAAAAAQAAAAAAAAAAAAAAAAABEA=</HashCode>
+      <FileName>Rules\SimplePresent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

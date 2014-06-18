@@ -3,7 +3,6 @@
     public class SimplePresent : BaseRule
     {
         protected override string AffirmativeMask { get { return "$1{0}$5{1}$27{2}$31{3}$52"; } }
-        // todo: change
         protected override string NegativeMask { get { return "$1{0}$4{1}{2}$18{3}{2}$21{3}$24{2}$25$28$31{3}$34"; } }
         protected override string InterrogativeMask { get { return "$3{2}$9{3}{0}$22{1}$45{2}$49{3}$59"; } }
 
